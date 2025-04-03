@@ -1,1 +1,28 @@
+.card {
+    --card-background: #ffffff;
+    --card-shadow: 0px 5px 0px #191a23;
+    background-color: var(--card-background);
+    border: 1px solid #191a23;
+    border-radius: 45px;
+    box-shadow: var(--card-shadow);
+    padding: 30px;
+    margin: 16px;
 
+    width: 300px;
+    height: 250px;
+}
+
+.cardHeader {
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardIcon {
+    cursor: pointer;
+}
+
+.cardDivider {
+    margin: 16px 0;
+    border: 0.5px solid var(--color);
+}

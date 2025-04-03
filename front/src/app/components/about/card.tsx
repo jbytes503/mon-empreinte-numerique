@@ -1,18 +1,26 @@
-import styles from './button.module.css';
+import { ReactNode } from 'react';
+import styles from './card.module.css';
 
 interface CardProps {
     name: string;
     title: string;
     description: string;
-    icon: string;
+    icon: ReactNode;
+    url?: string;
 }
 
-const AuthorCard = ({ title, description, icon }: CardProps) => {
+const AuthorCard = ({ name, title, description, icon }: CardProps) => {
     return (
-        <div className="flex flex-col items-center justify-center p-4 bg-white rounded-lg shadow-md">
-            <img src={icon} alt={title} className="w-16 h-16 mb-4" />
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="text-gray-600">{description}</p>
+        <div className={styles.card}>
+            <div className={styles.cardHeader}>
+                <div className={styles.cardHeaderContent}>
+                    <h3>{name}</h3>
+                    <p>{title}</p>
+                </div>
+                <div className={styles.cardIcon}>{icon}</div>{' '}
+            </div>
+            <div className={styles.cardDivider}></div>
+            <p>{description}</p>
         </div>
     );
 };

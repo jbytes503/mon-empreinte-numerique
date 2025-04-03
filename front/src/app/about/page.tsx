@@ -1,4 +1,5 @@
 import AuthorCard from '../components/about/card';
+import { FaLinkedin } from 'react-icons/fa';
 
 export default async function Page() {
     return (
@@ -34,21 +35,39 @@ export default async function Page() {
             <div className="">
                 <AuthorCard
                     name="Jassir Habba"
-                    title="Notre mission"
+                    title="Étudiant ingénieur en informatique"
                     description="Promouvoir un numérique responsable et réduire notre empreinte environnementale."
-                    icon="/images/mission.png"
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
                 />
                 <AuthorCard
-                    name="Jassir Habba"
-                    title="Nos valeurs"
+                    name="Simon Perret"
+                    title="Étudiant ingénieur en informatique"
                     description="Innovation, responsabilité, durabilité et sensibilisation."
-                    icon="/images/valeurs.png"
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
                 />
                 <AuthorCard
-                    name="Jassir Habba"
-                    title="Notre engagement"
+                    name="Hazim Asri"
+                    title="Étudiant ingénieur en informatique"
                     description="Accompagner la transition écologique à travers des actions concrètes."
-                    icon="/images/engagement.png"
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                />
+                <AuthorCard
+                    name="Mateo Carvajal"
+                    title="Étudiant ingénieur en informatique"
+                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                />
+                <AuthorCard
+                    name="José Southerland"
+                    title="Étudiant ingénieur en informatique"
+                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                />
+                <AuthorCard
+                    name="Santiago Forrero Gutiérrez"
+                    title="Étudiant ingénieur en informatique"
+                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    icon={<FaLinkedin size={32} color="#0077b5" />}
                 />
             </div>
         </>
