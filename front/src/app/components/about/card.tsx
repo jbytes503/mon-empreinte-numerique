@@ -9,7 +9,7 @@ interface CardProps {
     url?: string;
 }
 
-const AuthorCard = ({ name, title, description, icon }: CardProps) => {
+const AuthorCard = ({ name, title, description, icon, url }: CardProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
@@ -17,7 +17,18 @@ const AuthorCard = ({ name, title, description, icon }: CardProps) => {
                     <h3>{name}</h3>
                     <p>{title}</p>
                 </div>
-                <div className={styles.cardIcon}>{icon}</div>{' '}
+                {url ? (
+                    <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.cardIcon}
+                    >
+                        {icon}
+                    </a>
+                ) : (
+                    <div className={styles.cardIcon}>{icon}</div>
+                )}
             </div>
             <div className={styles.cardDivider}></div>
             <p>{description}</p>
