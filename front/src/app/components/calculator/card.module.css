@@ -124,6 +124,13 @@
     max-width: 200px;
 }
 
+.buttonContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
 .submitButton {
     background-color: #301934;
     color: white;
@@ -132,9 +139,7 @@
     padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
-    align-self: center;
     width: 100%;
     max-width: 300px;
-    margin-top: 20px;
     transition: background-color 0.3s ease;
 }

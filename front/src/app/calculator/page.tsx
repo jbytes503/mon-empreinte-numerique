@@ -1,7 +1,69 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './page.module.css';
 import QuestionCard from '../components/calculator/card';
+import {
+    calculateSmartphoneFootprint,
+    calculateComputerFootprint,
+    calculateTabletFootprint,
+    calculateTVFootprint,
+    calculateConsoleFootprint,
+} from '../../utils/carbonCalculator';
+
+interface FootprintResult {
+    totalFootprint: number;
+}
+interface SmartphoneFormData {
+    count: string;
+    brands: string[];
+    changeRate: string;
+    unused: string;
+}
 
 export default function Page() {
+    const [smartphoneResult, setSmartphoneResult] =
+        useState<FootprintResult | null>(null);
+
+    const [smartphoneData, setSmartphoneData] = useState<SmartphoneFormData>({
+        count: '',
+        brands: [],
+        changeRate: '',
+        unused: '',
+    });
+
+    // Fonction pour mettre à jour les valeurs du formulaire smartphone
+    const handleSmartphoneInputChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { id, value } = e.target;
+
+        if (id === 'smartphone-count') {
+            setSmartphoneData((prev) => ({ ...prev, count: value }));
+        } else if (id === 'smartphone-change-rate') {
+            setSmartphoneData((prev) => ({ ...prev, changeRate: value }));
+        } else if (id === 'smartphone-unused') {
+            setSmartphoneData((prev) => ({ ...prev, unused: value }));
+        }
+    };
+
+    const handleSmartphoneBrandChange = (
+        e: React.ChangeEvent<HTMLInputElement>
+    ) => {
+        const { value, checked } = e.target;
+
+        setSmartphoneData((prev) => {
+            if (checked) {
+                return { ...prev, brands: [...prev.brands, value] };
+            } else {
+                return {
+                    ...prev,
+                    brands: prev.brands.filter((brand) => brand !== value),
+                };
+            }
+        });
+    };
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>
@@ -13,8 +75,9 @@ export default function Page() {
                     number="01"
                     title="Smartphones"
                     description="Évaluez l'impact environnemental de votre appareil, de sa fabrication à son utilisation quotidienne."
-                    isOpen={false}
-                    isFilled={false}
+                    isOpen={true}
+                    isFilled={!!smartphoneResult}
+                    onSave={calculateSmartphoneFootprint}
                 >
                     <div className={styles.formGroup}>
                         <label htmlFor="smartphone-count">
@@ -25,6 +88,8 @@ export default function Page() {
                             id="smartphone-count"
                             min="0"
                             placeholder="Nombre"
+                            defaultValue={smartphoneData.count}
+                            onChange={handleSmartphoneInputChange}
                         />
                     </div>
 
@@ -39,6 +104,10 @@ export default function Page() {
                                     id="brand-apple"
                                     name="smartphone-brand"
                                     value="apple"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'apple'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-apple">Apple</label>
                             </div>
@@ -48,6 +117,10 @@ export default function Page() {
                                     id="brand-samsung"
                                     name="smartphone-brand"
                                     value="samsung"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'samsung'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-samsung">Samsung</label>
                             </div>
@@ -57,17 +130,12 @@ export default function Page() {
                                     id="brand-xiaomi"
                                     name="smartphone-brand"
                                     value="xiaomi"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'xiaomi'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-xiaomi">Xiaomi</label>
-                            </div>
-                            <div className={styles.checkboxItem}>
-                                <input
-                                    type="checkbox"
-                                    id="brand-google"
-                                    name="smartphone-brand"
-                                    value="google"
-                                />
-                                <label htmlFor="brand-google">Google</label>
                             </div>
                             <div className={styles.checkboxItem}>
                                 <input
@@ -75,6 +143,10 @@ export default function Page() {
                                     id="brand-huawei"
                                     name="smartphone-brand"
                                     value="huawei"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'huawei'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-huawei">Huawei</label>
                             </div>
@@ -84,15 +156,23 @@ export default function Page() {
                                     id="brand-oppo"
                                     name="smartphone-brand"
                                     value="oppo"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'oppo'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-oppo">Oppo</label>
                             </div>
                             <div className={styles.checkboxItem}>
                                 <input
                                     type="checkbox"
-                                    id="brand-other"
+                                    id="brand-autre"
                                     name="smartphone-brand"
-                                    value="other"
+                                    value="autre"
+                                    defaultChecked={smartphoneData.brands.includes(
+                                        'autre'
+                                    )}
+                                    onChange={handleSmartphoneBrandChange}
                                 />
                                 <label htmlFor="brand-other">Autre</label>
                             </div>
@@ -108,9 +188,10 @@ export default function Page() {
                             id="smartphone-change-rate"
                             min="0"
                             placeholder="Fréquence en années"
+                            defaultValue={smartphoneData.changeRate}
+                            onChange={handleSmartphoneInputChange}
                         />
                     </div>
-
                     <div className={styles.formGroup}>
                         <label htmlFor="smartphone-unused">
                             Combien de smartphones conservez-vous et que vous
@@ -121,6 +202,8 @@ export default function Page() {
                             id="smartphone-unused"
                             min="0"
                             placeholder="Nombre"
+                            defaultValue={smartphoneData.unused}
+                            onChange={handleSmartphoneInputChange}
                         />
                     </div>
                 </QuestionCard>
@@ -128,9 +211,10 @@ export default function Page() {
                 <QuestionCard
                     number="02"
                     title="Ordinateurs"
-                    description="Évaluez l'impact environnemental de votre ordinateur, qu'il soit fixe ou portable."
+                    description="Évaluez l'impact environnemental de vos ordinateurs fixes et portables."
                     isOpen={false}
                     isFilled={false}
+                    onSave={calculateComputerFootprint}
                 >
                     <div className={styles.formGroup}>
                         <label htmlFor="computer-count">
@@ -291,10 +375,11 @@ export default function Page() {
 
                 <QuestionCard
                     number="03"
-                    title="Tablette"
-                    description="Évaluez l'impact environnemental de votre tablette et de son utilisation."
-                    isFilled={false}
+                    title="Tablettes"
+                    description="Évaluez l'impact environnemental de vos tablettes."
                     isOpen={false}
+                    isFilled={false}
+                    onSave={calculateTabletFootprint}
                 >
                     <div className={styles.formGroup}>
                         <label htmlFor="tablet-count">
@@ -399,9 +484,10 @@ export default function Page() {
                 <QuestionCard
                     number="04"
                     title="Télévision"
-                    description="Évaluez l'impact environnemental de votre télévision et de sa consommation."
-                    isFilled={false}
+                    description="Évaluez l'impact environnemental de vos télévisions."
                     isOpen={false}
+                    isFilled={false}
+                    onSave={calculateTVFootprint}
                 >
                     <div className={styles.formGroup}>
                         <label htmlFor="tv-count">
@@ -445,9 +531,10 @@ export default function Page() {
                 <QuestionCard
                     number="05"
                     title="Console de jeux"
-                    description="Évaluez l'impact environnemental de votre console de jeux et de son utilisation."
-                    isFilled={false}
+                    description="Évaluez l'impact environnemental de vos consoles de jeux vidéo."
                     isOpen={false}
+                    isFilled={false}
+                    onSave={calculateConsoleFootprint}
                 >
                     <div className={styles.formGroup}>
                         <label htmlFor="console-count">
