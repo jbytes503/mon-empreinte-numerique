@@ -7,7 +7,7 @@ export default async function Page() {
     return (
         <>
             <h1>À propos de nous</h1>
-            <section className={styles.intro}>
+            <section className={`${styles.intro} ${styles.section}`}>
                 <p>
                     APRR, en collaboration avec des étudiants de l'INSA Lyon,
                     nous avons développé une plateforme visant à promouvoir un
@@ -37,7 +37,7 @@ export default async function Page() {
                 </p>
             </section>
 
-            <section className={styles.authors}>
+            <section className={`${styles.authors} ${styles.section}`}>
                 <AuthorCard
                     name="Jassir Habba"
                     title="Étudiant ingénieur en informatique"
