@@ -1,11 +1,12 @@
 import AuthorCard from '../components/about/card';
 import { FaLinkedin } from 'react-icons/fa';
 import styles from './page.module.css';
+import Title from '../components/titles';
 
 export default async function Page() {
     return (
         <>
-            <h1>À propos de nous</h1>
+            <Title name="À propos de nous" />
             <section className={`${styles.intro} ${styles.section}`}>
                 <p>
                     APRR, en collaboration avec des étudiants de l'INSA Lyon,
@@ -41,42 +42,42 @@ export default async function Page() {
                     name="Jassir Habba"
                     title="Étudiant ingénieur en informatique"
                     description="Promouvoir un numérique responsable et réduire notre empreinte environnementale."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/jassir-habba/"
                 />
                 <AuthorCard
                     name="Simon Perret"
                     title="Étudiant ingénieur en informatique"
                     description="Innovation, responsabilité, durabilité et sensibilisation."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/perretsimon/"
                 />
                 <AuthorCard
                     name="Hazim Asri"
                     title="Étudiant ingénieur en informatique"
                     description="Accompagner la transition écologique à travers des actions concrètes."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/hazim-asri-307989221/"
                 />
                 <AuthorCard
                     name="Mateo Carvajal"
                     title="Étudiant ingénieur en informatique"
                     description="Accompagner la transition écologique à travers des actions concrètes."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/mateo-carvajal-a02877248/"
                 />
                 <AuthorCard
                     name="José Southerland"
                     title="Étudiant ingénieur en informatique"
                     description="Accompagner la transition écologique à travers des actions concrètes."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/jsoutherlands/"
                 />
                 <AuthorCard
                     name="Santiago Forrero Gutiérrez"
                     title="Étudiant ingénieur en informatique"
                     description="Accompagner la transition écologique à travers des actions concrètes."
-                    icon={<FaLinkedin size={32} color="#0077b5" />}
+                    icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/santiago-forero-gutierrez/"
                 />
             </section>
