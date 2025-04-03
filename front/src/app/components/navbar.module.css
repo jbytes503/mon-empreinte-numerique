@@ -1,0 +1,32 @@
+.logoText {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 41px;
+    color: var(--color5);
+}
+
+.navItemText {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 28px;
+    color: var(--color5);
+}
+
+/* .hiddenButton : style par défaut */
+.hiddenButton {
+    border: 1px solid rgba(0, 0, 0, 0); /* Bordure semi-transparente noire */
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin: 0 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease; /* Transition fluide pour la bordure */
+}
+
+/* .selectedButton : style quand le bouton est sélectionné */
+.selectedButton {
+    border: 1px solid var(--color5);
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin: 0 4px;
+    box-sizing: border-box;
+}
