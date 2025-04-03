@@ -1,0 +1,17 @@
+.section {
+    margin: 3em 0;
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: justify;
+    width: 70%;
+}
+
+.authors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
