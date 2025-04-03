@@ -1,0 +1,151 @@
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.authors {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.title {
+    font-size: 36px;
+    color: #2d1832;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cardContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.formGroup {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    gap: 20px;
+}
+
+.formGroup label {
+    margin-bottom: 0;
+    font-weight: normal;
+    color: #2d1832;
+    flex: 1;
+    min-width: 250px;
+    font-size: 16px;
+}
+
+.formGroup input,
+.formGroup select {
+    flex: 1;
+    max-width: 200px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+}
+
+.formQuestion {
+    margin-bottom: 10px;
+}
+
+.formQuestion > label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #2d1832;
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 15px;
+    margin-top: 5px;
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkboxItem input[type='checkbox'] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #2d1832;
+    border-radius: 3px;
+    margin: 0;
+    position: relative;
+    cursor: pointer;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkboxItem input[type='checkbox']:checked {
+    background-color: #2d1832;
+}
+
+.checkboxItem label {
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 18px;
+}
+
+.formGroup select {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex: 1;
+    max-width: 200px;
+    appearance: none;
+    background-color: white;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232d1832' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    cursor: pointer;
+    color: #333;
+}
+
+.formGroup select:focus {
+    outline: none;
+    border-color: #2d1832;
+    box-shadow: 0 0 0 2px rgba(45, 24, 50, 0.2);
+}
+
+.formGroup select option {
+    background-color: white;
+    color: #333;
+    padding: 8px;
+}
