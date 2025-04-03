@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Exemple de questionnaire</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            .section {
+                margin-bottom: 30px;
+                padding: 20px;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+            .question {
+                margin-bottom: 15px;
+            }
+            label {
+                display: block;
+                margin-bottom: 5px;
+            }
+            select,
+            input[type='text'],
+            input[type='number'] {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 10px;
+                box-sizing: border-box;
+            }
+            .checkbox-group {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            .checkbox-item {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+            }
+            button {
+                background-color: #4caf50;
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Idée Mon Empreinte Numérique</h1>
+
+        <form>
+            <div class="section">
+                <h2>Smartphones</h2>
+                <div class="question">
+                    <label
+                        >Combien de smartphones possédez-vous actuellement
+                        ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder="Nombre de smartphones"
+                    />
+                </div>
+                <div class="question">
+                    <label
+                        >Quelles sont les marques de smartphone que vous
+                        utilisez?</label
+                    >
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="apple-phone" />
+                            <label for="apple-phone">Apple</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="samsung-phone" />
+                            <label for="samsung-phone">Samsung</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="huawei-phone" />
+                            <label for="huawei-phone">Huawei</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="xiaomi-phone" />
+                            <label for="xiaomi-phone">Xiaomi</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="oppo-phone" />
+                            <label for="oppo-phone">Oppo</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-phone" />
+                            <label for="autre-phone">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>A quel rythme changez-vous de smartphone ?</label>
+                    <select>
+                        <option>1 an</option>
+                        <option>2 ans</option>
+                        <option>3 ans</option>
+                        <option>4 ans</option>
+                        <option>5 ans</option>
+                        <option>6 ans</option>
+                        <option>7 ans</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label
+                        >Combien d'heures par jour utilisez-vous votre
+                        smartphone ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        max="24"
+                        placeholder="Nombre d'heures"
+                    />
+                </div>
+                <div class="question">
+                    <label
+                        >Combien de smartphones conservez-vous et que vous
+                        n'utilisez plus ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder="Nombre de smartphones inutilisés"
+                    />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Ordinateurs</h2>
+                <div class="question">
+                    <label>Combien d'ordinateurs utilisez-vous ?</label>
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder="Nombre d'ordinateurs"
+                    />
+                </div>
+                <div class="question">
+                    <label>Quel type d'ordinateur utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="portable" />
+                            <label for="portable">Ordinateur portable</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="bureau" />
+                            <label for="bureau">Ordinateur fixe professionnel</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="perso" />
+                            <label for="perso">Ordinateur fixe personnel</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label
+                        >Quelles sont les marques d'ordinateurs que vous
+                        utilisez ?</label
+                    >
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="apple-laptop" />
+                            <label for="apple-laptop">Apple</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dell-laptop" />
+                            <label for="dell-laptop">Dell</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="hp-laptop" />
+                            <label for="hp-laptop">HP</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lenovo-laptop" />
+                            <label for="lenovo-laptop">Lenovo</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="asus-laptop" />
+                            <label for="asus-laptop">Asus</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="acer-laptop" />
+                            <label for="acer-laptop">Acer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-laptop" />
+                            <label for="autre-laptop">Autre</label>
+                        </div>
+                </div>
+                <div class="question">
+                    <label>A quel rythme changez-vous d'ordinateur ?</label>
+                    <select>
+                        <option>1 an</option>
+                        <option>2 ans</option>
+                        <option>3 ans</option>
+                        <option>4 ans</option>
+                        <option>5 ans</option>
+                        <option>6 ans</option>
+                        <option>7 ans</option>
+                        <option>8 ans</option>
+                        <option>9 ans</option>
+                        <option>10 ans</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label
+                        >Combien d'heures par jour utilisez-vous votre
+                        ordinateur ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        max="24"
+                        placeholder="Nombre d'heures"
+                    />
+                </div>
+                <div class="question">
+                    <label
+                        >Combien d'ordinateurs avez-vous et que vous n'utilisez
+                        plus ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder="Nombre d'ordinateurs inutilisés"
+                    />
+                </div>
+            </div>
+        </div>
+            <div class="section">
+                <h2>Tablettes</h2>
+                <div class="question">
+                    <label>Combien de tablettes possédez-vous actuellement ?</label>
+                    <input type="number" min="0" placeholder="Nombre de tablettes" />
+                </div>
+                <div class="question">
+                    <label>Quelles sont les marques de tablettes que vous utilisez ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="apple-tablet" />
+                            <label for="apple-tablet">Apple</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="samsung-tablet" />
+                            <label for="samsung-tablet">Samsung</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="huawei-tablet" />
+                            <label for="huawei-tablet">Huawei</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lenovo-tablet" />
+                            <label for="lenovo-tablet">Lenovo</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-tablet" />
+                            <label for="autre-tablet">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>A quel rythme changez-vous de tablette ?</label>
+                    <select>
+                        <option>1 an</option>
+                        <option>2 ans</option>
+                        <option>3 ans</option>
+                        <option>4 ans</option>
+                        <option>5 ans</option>
+                        <option>6 ans</option>
+                        <option>7 ans</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour utilisez-vous votre tablette ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Combien de tablettes conservez-vous et que vous n'utilisez plus ?</label>
+                    <input type="number" min="0" placeholder="Nombre de tablettes inutilisées" />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Télévisions</h2>
+                <div class="question">
+                    <label>Combien de télévisions possédez-vous actuellement ?</label>
+                    <input type="number" min="0" placeholder="Nombre de télévisions" />
+                </div>
+                <div class="question">
+                    <label>Quelles sont les marques de télévisions que vous utilisez ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="samsung-tv" />
+                            <label for="samsung-tv">Samsung</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="lg-tv" />
+                            <label for="lg-tv">LG</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sony-tv" />
+                            <label for="sony-tv">Sony</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="philips-tv" />
+                            <label for="philips-tv">Philips</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-tv" />
+                            <label for="autre-tv">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>A quel rythme changez-vous de télévision ?</label>
+                    <select>
+                        <option>1 an</option>
+                        <option>2 ans</option>
+                        <option>3 ans</option>
+                        <option>4 ans</option>
+                        <option>5 ans</option>
+                        <option>6 ans</option>
+                        <option>7 ans</option>
+                        <option>8 ans</option>
+                        <option>9 ans</option>
+                        <option>10 ans</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour regardez-vous la télévision ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Consoles de jeux</h2>
+                <div class="question">
+                    <label>Combien de consoles de jeu possédez-vous ?</label>
+                    <input
+                        type="number"
+                        min="0"
+                        placeholder="Nombre de consoles"
+                    />
+                </div>
+                <div class="question">
+                    <label>Quelle(s) console(s) possédez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ps5" />
+                            <label for="ps5">PS5</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ps4" />
+                            <label for="ps4">PS4</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="xbox" />
+                            <label for="xbox">Xbox Series X/S</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="switch" />
+                            <label for="switch">Nintendo Switch</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autres" />
+                            <label for="autres">Autres</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label
+                        >Depuis combien de temps possédez-vous votre console
+                        principale ?</label
+                    >
+                    <select>
+                        <option>Moins d'un an</option>
+                        <option>1-2 ans</option>
+                        <option>3-4 ans</option>
+                        <option>5 ans ou plus</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label
+                        >Combien d'heures par semaine utilisez-vous votre
+                        console ?</label
+                    >
+                    <input
+                        type="number"
+                        min="0"
+                        max="168"
+                        placeholder="Nombre d'heures"
+                    />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Messagerie et réseaux sociaux</h2>
+                <div class="question">
+                    <label>Quels services de messagerie personnelle utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="whatsapp" />
+                            <label for="whatsapp">WhatsApp</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="telegram" />
+                            <label for="telegram">Telegram</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="signal" />
+                            <label for="signal">Signal</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="messenger" />
+                            <label for="messenger">Facebook Messenger</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="imessage" />
+                            <label for="imessage">iMessage</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="sms" />
+                            <label for="sms">SMS</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-messagerie" />
+                            <label for="autre-messagerie">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien de messages personnels envoyez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre de messages" />
+                </div>
+                <div class="question">
+                    <label>Combien de photos/vidéos partagez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre de médias" />
+                </div>
+                <div class="question">
+                    <label>Combien d'emails personnels envoyez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre d'emails" />
+                </div>
+                <div class="question">
+                    <label>Combien d'emails personnels recevez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre d'emails" />
+                </div>
+                <div class="question">
+                    <label>Quels réseaux sociaux utilisez-vous activement ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="facebook" />
+                            <label for="facebook">Facebook</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="instagram" />
+                            <label for="instagram">Instagram</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="twitter" />
+                            <label for="twitter">Twitter/X</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="tiktok" />
+                            <label for="tiktok">TikTok</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="linkedin" />
+                            <label for="linkedin">LinkedIn</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="reddit" />
+                            <label for="reddit">Reddit</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="snapchat" />
+                            <label for="snapchat">Snapchat</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-reseau" />
+                            <label for="autre-reseau">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour passez-vous sur les réseaux sociaux ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Combien de photos/vidéos partagez-vous par jour sur les réseaux sociaux ?</label>
+                    <input type="number" min="0" placeholder="Nombre de médias" />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Service de streaming et divertissement</h2>
+                <div class="question">
+                    <label>Quels services de streaming vidéo utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="netflix" />
+                            <label for="netflix">Netflix</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="prime" />
+                            <label for="prime">Amazon Prime Video</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="disney" />
+                            <label for="disney">Disney+</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="youtube" />
+                            <label for="youtube">YouTube</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="appletv" />
+                            <label for="appletv">Apple TV+</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-streaming" />
+                            <label for="autre-streaming">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour regardez-vous des contenus en streaming ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Quelle est la qualité de visionnage que vous utilisez le plus souvent ?</label>
+                    <select>
+                        <option>4K (Ultra HD)</option>
+                        <option>1080p (Full HD)</option>
+                        <option>720p (HD)</option>
+                        <option>480p (SD)</option>
+                    </select>
+                </div>
+                <div class="question">
+                    <label>Combien de personnes regardent en même temps sur votre compte ?</label>
+                    <input type="number" min="1" placeholder="Nombre de personnes" />
+                </div>
+                <div class="question">
+                    <label>Quels services de streaming musical utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="spotify" />
+                            <label for="spotify">Spotify</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="applemusic" />
+                            <label for="applemusic">Apple Music</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="deezer" />
+                            <label for="deezer">Deezer</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="ytmusic" />
+                            <label for="ytmusic">YouTube Music</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="amazonmusic" />
+                            <label for="amazonmusic">Amazon Music</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-musique" />
+                            <label for="autre-musique">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour écoutez-vous de la musique en streaming ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Combien de personnes utilisent votre compte de streaming musical ?</label>
+                    <input type="number" min="1" placeholder="Nombre de personnes" />
+                </div>
+                <div class="question">
+                    <label>Quels services de cloud gaming utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="geforce" />
+                            <label for="geforce">GeForce Now</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="xboxcloud" />
+                            <label for="xboxcloud">Xbox Cloud Gaming</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="psnow" />
+                            <label for="psnow">PlayStation Now</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="shadow" />
+                            <label for="shadow">Shadow</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-cloud" />
+                            <label for="autre-cloud">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par semaine passez-vous sur le cloud gaming ?</label>
+                    <input type="number" min="0" max="168" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Quelle résolution utilisez-vous pour le cloud gaming ?</label>
+                    <select>
+                        <option>4K (Ultra HD)</option>
+                        <option>1440p (QHD)</option>
+                        <option>1080p (Full HD)</option>
+                        <option>720p (HD)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Utilisation de l'Intelligence Artificielle</h2>
+                <div class="question">
+                    <label>Quels services d'IA utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="chatgpt" />
+                            <label for="chatgpt">ChatGPT</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dalle" />
+                            <label for="dalle">DALL·E</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="midjourney" />
+                            <label for="midjourney">Midjourney</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="stable" />
+                            <label for="stable">Stable Diffusion</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-ia" />
+                            <label for="autre-ia">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien de requêtes effectuez-vous par jour sur ChatGPT ou autres LLM ?</label>
+                    <input type="number" min="0" placeholder="Nombre de requêtes" />
+                </div>
+                <div class="question">
+                    <label>Combien d'images générez-vous par jour avec des IA (DALL·E, Midjourney, etc.) ?</label>
+                    <input type="number" min="0" placeholder="Nombre d'images" />
+                </div>
+                <div class="question">
+                    <label>Utilisez-vous ces services d'IA à des fins professionnelles ou personnelles ?</label>
+                    <select>
+                        <option>Uniquement professionnel</option>
+                        <option>Uniquement personnel</option>
+                        <option>Les deux</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Stockage et cloud computing</h2>
+                <div class="question">
+                    <label>Quels services de stockage en ligne utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="gdrive" />
+                            <label for="gdrive">Google Drive</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="onedrive" />
+                            <label for="onedrive">OneDrive</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="dropbox" />
+                            <label for="dropbox">Dropbox</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="icloud" />
+                            <label for="icloud">iCloud</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-stockage" />
+                            <label for="autre-stockage">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Quel est votre espace de stockage total utilisé (en Go) ?</label>
+                    <input type="number" min="0" placeholder="Nombre de Go" />
+                </div>
+                <div class="question">
+                    <label>Combien de fichiers partagez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre de fichiers" />
+                </div>
+                <div class="question">
+                    <label>Combien de personnes accèdent à vos fichiers partagés en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre de personnes" />
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par jour vos appareils sont-ils connectés aux services de stockage ?</label>
+                    <input type="number" min="0" max="24" placeholder="Nombre d'heures" />
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Communication professionnelle</h2>
+                <div class="question">
+                    <label>Quels services de communication professionnelle utilisez-vous ?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="teams" />
+                            <label for="teams">Microsoft Teams</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="slack" />
+                            <label for="slack">Slack</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="discord-pro" />
+                            <label for="discord-pro">Discord</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="autre-com-pro" />
+                            <label for="autre-com-pro">Autre</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="question">
+                    <label>Combien de messages professionnels envoyez-vous par jour ?</label>
+                    <input type="number" min="0" placeholder="Nombre de messages" />
+                </div>
+                <div class="question">
+                    <label>Combien d'emails professionnels envoyez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre d'emails" />
+                </div>
+                <div class="question">
+                    <label>Combien d'emails professionnels recevez-vous par jour en moyenne ?</label>
+                    <input type="number" min="0" placeholder="Nombre d'emails" />
+                </div>
+                <div class="question">
+                    <label>Combien d'heures par semaine passez-vous en visioconférence professionnelle ?</label>
+                    <input type="number" min="0" max="168" placeholder="Nombre d'heures" />
+                </div>
+                <div class="question">
+                    <label>Combien de personnes participent en moyenne à vos réunions en ligne ?</label>
+                    <input type="number" min="1" placeholder="Nombre de participants" />
+                </div>
+                <div class="question">
+                    <label>Utilisez-vous la caméra pendant vos réunions professionnelles ?</label>
+                    <select>
+                        <option>Toujours</option>
+                        <option>Parfois</option>
+                        <option>Jamais</option>
+                    </select>
+                </div>
+            </div>
+
+        </form>
+    </body>
+</html>
+
+</html>
