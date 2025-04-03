@@ -1,5 +1,6 @@
 import AuthorCard from '../components/about/card';
 import { FaLinkedin } from 'react-icons/fa';
+import CarbonFootprint from '../components/result/result';
 
 export default async function Page() {
     return (
@@ -70,6 +71,27 @@ export default async function Page() {
                     icon={<FaLinkedin size={32} color="#0077b5" />}
                 />
             </div>
+            <div className="">
+                <h2>Notre empreinte carbone</h2>
+                <CarbonFootprint 
+                co2Amount={9.5} 
+                maxScale={50} 
+                progressPercentage={85} 
+                tripComparison={38} 
+                />
+                <p></p>
+            </div>
+            <div className="">
+                <h2>Notre empreinte carbone</h2>
+                <CarbonFootprint 
+                co2Amount={7} 
+                maxScale={40} 
+                progressPercentage={65} 
+                tripComparison={14} 
+                />
+                <p></p>
+            </div>
+            <hr/>
         </>
     );
 }
