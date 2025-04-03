@@ -44,6 +44,29 @@ export default function Home() {
                     />
                 </div>
             </section>
+            <section className={styles.facts}>
+                <div className={styles.fact}>
+                    <div className={styles.factText}>
+                        <h3>L’empreinte carbone de vos usages numériques</h3>
+                        <p>
+                            La consommation moyenne Française est de 10 tonnes
+                            de CO2 par an, l'objectif de la COP21 est de 2
+                            tonnes de CO2 par an. Le numérique représente 4% de
+                            la consommation soit 400 kg de CO2 par an.
+                        </p>
+                        <div>
+                            <Button label="En savoir plus" href="/learn-more" />
+                        </div>
+                    </div>
+                    <Image
+                        aria-hidden
+                        src="/emoji.svg"
+                        alt="Illustration emoji"
+                        width={350}
+                        height={350}
+                    />
+                </div>
+            </section>
         </>
     );
 }
