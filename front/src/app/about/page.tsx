@@ -1,6 +1,5 @@
 import AuthorCard from '../components/about/card';
 import { FaLinkedin } from 'react-icons/fa';
-import CarbonFootprint from '../components/result/result';
 import styles from './page.module.css';
 
 export default async function Page() {
