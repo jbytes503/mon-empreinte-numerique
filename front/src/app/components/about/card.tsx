@@ -13,8 +13,10 @@ const AuthorCard = ({ name, title, description, icon, url }: CardProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
-                <div className={styles.cardHeaderContent}>
-                    <h3>{name}</h3>
+                <div>
+                    <h3>
+                        <strong>{name}</strong>
+                    </h3>
                     <p>{title}</p>
                 </div>
                 {url ? (
