@@ -1,0 +1,27 @@
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin: 50px 0px;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header div {
+    margin: 20px 0px;
+}
+
+.header div p {
+    margin: 10px 0px;
+    text-align: justify;
+}
+.header img {
+    margin-left: 50px;
+    width: 300px;
+}

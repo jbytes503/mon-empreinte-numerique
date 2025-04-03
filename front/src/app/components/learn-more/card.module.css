@@ -5,22 +5,27 @@
     border-radius: 45px;
     box-shadow: var(--card-shadow);
     padding: 30px;
+    margin: 16px;
 
-    width: 300px;
+    width: 350px;
     min-height: 280px;
 }
 
 .cardHeader {
     margin-bottom: 8px;
-    display: flex;
     justify-content: space-between;
+    text-align: center;
 }
 
-.cardIcon {
-    cursor: pointer;
+.cardImage {
+    margin-bottom: 8px;
+}
+
+.image {
+    height: 50px;
 }
 
 .cardDivider {
     margin: 16px 0;
-    border: 0.5px solid var(--color-5);
+    border: 0.5px solid var(--color);
 }
