@@ -1,0 +1,95 @@
+{
+    "smartphones": {
+        "apple": 63,
+        "samsung": 54,
+        "huawei": 72.5,
+        "xiaomi": 63,
+        "oppo": 56,
+        "autre": 63
+    },
+    "ordinateurs": {
+        "ordinateur_fixe_professionel": 258,
+        "ordinateur_fixe_personnel": 299,
+        "ordinateur_portable": 246,
+        "apple": 327,
+        "dell": 358,
+        "hp": 222.36,
+        "lenovo": 266,
+        "asus": 226,
+        "acer": 332,
+        "autre": 246
+    },
+    "tablettes": {
+        "apple": 113,
+        "samsung": 59.7,
+        "huawei": 85,
+        "lenovo": 59.7,
+        "autre": 59.7
+    },
+    "televisions": {
+        "television": 376,
+        "usage_annuel_television": 22.4,
+        "parJour": 61
+    },
+    "consoles": {
+        "console": 300,
+        "parSemaine": 500
+    },
+    "messagers": {
+        "whatsapp": 0.0014,
+        "telegram": 0.0014,
+        "signal": 0.0014,
+        "messenger": 0.002,
+        "imessage": 0.0014,
+        "sms": 0.000014,
+        "autreMessagerie": 0.0014,
+        "envoiePhoto": 0.5,
+        "envoieEmail": 0.004,
+        "recepEmail": 0.0004,
+        "facebook": 0.8,
+        "instagram": 1.2,
+        "twitter": 0.6,
+        "youtube": 1.8,
+        "tiktok": 2.5,
+        "snapchat": 1.0,
+        "linkedin": 0.7,
+        "reddit": 0.6,
+        "autreReseau": 1.0,
+        "geforce": 60,
+        "xboxcloudgaming": 55,
+        "psnow": 58,
+        "shadow": 62,
+        "autreCloudGaming": 60
+    },
+    "streaming": {
+        "netflix": 100,
+        "disney": 95,
+        "amazon": 105,
+        "youtube": 110,
+        "appleTv": 90,
+        "autreStreamingVideo": 100,
+        "parJour": 100
+    },
+    "IA": {
+        "ChatGPT": 2.68,
+        "Gemini": 2.2,
+        "DeepSeek": 3.0,
+        "Copilot": 1.13,
+        "Le Chat": 0.6,
+        "Meta AI": 2.6,
+        "Grok": 3.2,
+        "Autre": 2.5
+    },
+    "stockage": {
+        "googleDrive": 0.023,
+        "dropbox": 0.025,
+        "onedrive": 0.024,
+        "autreStockage": 0.024
+    },
+    "professionnel": {
+        "teams": 150,
+        "slack": 20,
+        "discord": 25,
+        "autre": 30
+    }
+}
