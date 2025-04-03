@@ -39,7 +39,7 @@ export default function Navbar() {
                             {navItems.map((item, index) => (
                                 <li
                                     key={index}
-                                    className={`flex items-center p-1 text-lg gap-x-2 text-slate-600  
+                                    className={`flex items-center p-1 text-lg gap-x-2 text-slate-600 ${styles.navItemText}
                                         ${selectedButton === item.name ? styles.selectedButton : styles.hiddenButton}`} // Appliquer le style si le bouton est sélectionné
                                 >
                                     <Link

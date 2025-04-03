@@ -2,9 +2,11 @@
     --background: #ffffff;
     --foreground: #171717;
 
-    --color5: #301934;
-    --color: #301934;
-
+    --color-5: #301934;
+    --color-4: #75bf91;
+    --color-3: #f8f0ec;
+    --color-2: #f08262;
+    --color-1: #e52713;
 }
 
 @media (prefers-color-scheme: dark) {
