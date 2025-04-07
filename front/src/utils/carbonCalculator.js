@@ -20,7 +20,9 @@ export function calculateSmartphoneFootprint(data) {
 
     const totalEmission =
         ((count + unused) * manufacturingEmission) / changeRate;
-    console.log(`Smartphone Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone des smartphones: ${totalEmission.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission.toFixed(2));
 }
 
@@ -47,7 +49,6 @@ export function calculateComputerFootprint(data) {
     const avgTypeEmission =
         typeEmissions.reduce((a, b) => a + b, 0) / typeEmissions.length;
 
-    // Calculer la moyenne des marques sélectionnées
     const avgBrandEmission = data.brands?.length
         ? data.brands.reduce((sum, brand) => {
               return (
@@ -58,8 +59,6 @@ export function calculateComputerFootprint(data) {
           }, 0) / data.brands.length
         : carboneData.ordinateurs.autre;
 
-    // Émission fabrication: moyenne entre l'émission moyenne du type et l'émission moyenne de la marque
-    // Si pas de marque sélectionnée, on peut utiliser avgTypeEmission comme référence pour brandEmission
     const finalBrandEmission = data.brands?.length
         ? avgBrandEmission
         : avgTypeEmission;
@@ -67,7 +66,9 @@ export function calculateComputerFootprint(data) {
 
     const totalEmission =
         ((count + unused) * manufacturingEmission) / changeRate;
-    console.log(`Computer Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone des ordinateurs: ${totalEmission.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission.toFixed(2));
 }
 
@@ -93,7 +94,9 @@ export function calculateTabletFootprint(data) {
     const totalEmission =
         ((count + unused) * manufacturingEmission) / changeRate;
 
-    console.log(`Tablet Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone des tablettes: ${totalEmission.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission.toFixed(2));
 }
 
@@ -118,7 +121,9 @@ export function calculateTVFootprint(data) {
         count * usagePerTVperYear * (dailyHours / typicalDailyHours);
 
     const totalEmission = annualManufacturing + annualUsage;
-    console.log(`TV Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone des télévisions: ${totalEmission.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission.toFixed(2));
 }
 
@@ -143,7 +148,9 @@ export function calculateConsoleFootprint(data) {
     const annualUsage_kg = annualUsage_g / 1000; // Conversion g -> kg
 
     const totalEmission = annualManufacturing + annualUsage_kg;
-    console.log(`Console Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone des consoles de jeux: ${totalEmission.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission.toFixed(2));
 }
 
@@ -193,7 +200,7 @@ export function calculateMessagingFootprint(data) {
 
     const totalEmission_kg = totalEmission_g / 1000; // conversion
     console.log(
-        `Messaging Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+        `Empreinte carbone de la messagerie: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
     );
     return parseFloat(totalEmission_kg.toFixed(2));
 }
@@ -236,7 +243,7 @@ export function calculateStreamingFootprint(data) {
 
     const totalEmission_kg = totalEmission_g / 1000;
     console.log(
-        `Streaming Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+        `Empreinte carbone du streaming: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
     );
     return parseFloat(totalEmission_kg.toFixed(2));
 }
@@ -260,7 +267,9 @@ export function calculateAIFootprint(data) {
     totalEmission_g += (data.aiImages || 0) * 365 * avgAiFactorPerRequest_g;
 
     const totalEmission_kg = totalEmission_g / 1000;
-    console.log(`AI Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone de l'IA: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission_kg.toFixed(2));
 }
 
@@ -288,7 +297,9 @@ export function calculateCloudFootprint(data) {
         (data.filesShared || 0) * 365 * fileShareFactor_g;
     totalEmission_kg += fileShareEmissionAnnual_g / 1000;
 
-    console.log(`Cloud Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone du cloud: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission_kg.toFixed(2));
 }
 
@@ -330,6 +341,8 @@ export function calculateWorkFootprint(data) {
 
     totalEmission_kg = totalEmission_g / 1000;
 
-    console.log(`Work Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    console.log(
+        `Empreinte carbone liée au travail: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+    );
     return parseFloat(totalEmission_kg.toFixed(2));
 }
