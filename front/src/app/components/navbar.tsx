@@ -17,7 +17,7 @@ export default function Navbar() {
     const navItems = [
         { name: "L'empreinte numérique", href: '/' },
         { name: 'À propos de nous', href: '/about' },
-        { name: 'Calculer mon empreinte', href: '/Calculator' },
+        { name: 'Calculer mon empreinte', href: '/calculator' },
     ];
 
     return (
