@@ -1,258 +1,335 @@
-/**
- * Utilitaires pour calculer l'empreinte carbone des appareils électroniques
- */
-
-// Import des données du fichier data.json
 import carboneData from '../lib/data.json';
 
 export function calculateSmartphoneFootprint(data) {
     console.log("Calcul de l'empreinte carbone du smartphone...", data);
+    const count = data.count;
+    const changeRate = data.changeRate;
+    const unused = data.unused;
 
-    // Récupérer les valeurs des arguments
-    const count = data.count || 0;
-    const brands = data.brands || [];
-    const changeRate = data.changeRate || 2;
-    const unused = data.unused || 0;
+    if (count === 0) return 0;
 
-    // Données des smartphones
-    const smartphoneBrands = carboneData.smartphones;
+    const manufacturingEmission = data.brands?.length
+        ? data.brands.reduce((sum, brand) => {
+              return (
+                  sum +
+                  (carboneData.smartphones[brand] ||
+                      carboneData.smartphones.autre)
+              );
+          }, 0) / data.brands.length
+        : carboneData.smartphones.autre;
 
-    // Calcul simple de l'empreinte
-    let totalEmission = 0;
-
-    if (count === 0 && unused === 0) return 0; // Retourne 0 si aucun appareil
-
-    if (brands.length > 0) {
-        // Avec marques sélectionnées
-        let marqueEmission = 0;
-        for (const brand of brands) {
-            marqueEmission +=
-                smartphoneBrands[brand.toLowerCase()] || smartphoneBrands.autre;
-        }
-        totalEmission =
-            ((count + unused) * (marqueEmission / brands.length)) / changeRate;
-    } else {
-        // Sans marque sélectionnée (moyenne)
-        const moyenneEmission = 60; // kg CO2e en moyenne
-        totalEmission = ((count + unused) * moyenneEmission) / changeRate;
-    }
-
-    console.log(
-        'Empreinte calculée (Smartphone):',
-        totalEmission.toFixed(2),
-        'kg CO2e/an'
-    );
+    const totalEmission =
+        ((count + unused) * manufacturingEmission) / changeRate;
+    console.log(`Smartphone Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
     return parseFloat(totalEmission.toFixed(2));
 }
 
 export function calculateComputerFootprint(data) {
     console.log("Calcul de l'empreinte carbone de l'ordinateur...", data);
+    const count = data.count;
+    const changeRate = data.changeRate;
+    const unused = data.unused;
 
-    const count = data.count || 0;
-    const types = data.types || [];
-    const brands = data.brands || [];
-    const changeRate = data.changeRate || 3;
-    const unused = data.unused || 0;
+    if (count === 0) return 0;
 
-    if (count === 0 && unused === 0) return 0;
-
-    const computerData = carboneData.ordinateurs;
-    let totalEmission = 0;
-
-    let typeEmission = 0;
-    if (types.length > 0) {
-        for (const type of types) {
-            if (type === 'portable')
-                typeEmission += computerData.ordinateur_portable;
-            else if (type === 'bureau')
-                typeEmission += computerData.ordinateur_fixe_professionel;
-            else if (type === 'perso')
-                typeEmission += computerData.ordinateur_fixe_personnel;
+    const typeEmissions = (data.types || ['portable']).map((type) => {
+        switch (type) {
+            case 'portable':
+                return carboneData.ordinateurs.ordinateur_portable;
+            case 'bureau':
+                return carboneData.ordinateurs.ordinateur_fixe_professionel;
+            case 'perso':
+                return carboneData.ordinateurs.ordinateur_fixe_personnel;
+            default:
+                return carboneData.ordinateurs.ordinateur_portable;
         }
-        typeEmission /= types.length;
-    } else {
-        typeEmission = 250; // Moyenne si aucun type
-    }
+    });
+    const avgTypeEmission =
+        typeEmissions.reduce((a, b) => a + b, 0) / typeEmissions.length;
 
-    let marqueEmission = 0;
-    if (brands.length > 0) {
-        for (const brand of brands) {
-            marqueEmission +=
-                computerData[brand.toLowerCase()] || computerData.autre;
-        }
-        marqueEmission /= brands.length;
-    } else {
-        marqueEmission = typeEmission; // Utilise l'émission du type si pas de marque
-    }
+    // Calculer la moyenne des marques sélectionnées
+    const avgBrandEmission = data.brands?.length
+        ? data.brands.reduce((sum, brand) => {
+              return (
+                  sum +
+                  (carboneData.ordinateurs[brand] ||
+                      carboneData.ordinateurs.autre)
+              );
+          }, 0) / data.brands.length
+        : carboneData.ordinateurs.autre;
 
-    const moyenneEmission = (typeEmission + marqueEmission) / 2;
-    totalEmission = ((count + unused) * moyenneEmission) / changeRate;
+    // Émission fabrication: moyenne entre l'émission moyenne du type et l'émission moyenne de la marque
+    // Si pas de marque sélectionnée, on peut utiliser avgTypeEmission comme référence pour brandEmission
+    const finalBrandEmission = data.brands?.length
+        ? avgBrandEmission
+        : avgTypeEmission;
+    const manufacturingEmission = (avgTypeEmission + finalBrandEmission) / 2;
 
-    console.log(
-        'Empreinte calculée (Ordinateur):',
-        totalEmission.toFixed(2),
-        'kg CO2e/an'
-    );
+    const totalEmission =
+        ((count + unused) * manufacturingEmission) / changeRate;
+    console.log(`Computer Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
     return parseFloat(totalEmission.toFixed(2));
 }
 
 export function calculateTabletFootprint(data) {
     console.log("Calcul de l'empreinte carbone de la tablette...", data);
+    const count = data.count;
+    const changeRate = data.changeRate;
+    const unused = data.unused;
 
-    const count = data.count || 0;
-    const brands = data.brands || [];
-    const changeRate = data.changeRate || 3;
-    const unused = data.unused || 0;
+    if (count === 0) return 0;
 
-    if (count === 0 && unused === 0) return 0;
+    // Calculer la moyenne des marques sélectionnées (comme smartphone/ordi)
+    const manufacturingEmission = data.brands?.length
+        ? data.brands.reduce((sum, brand) => {
+              return (
+                  sum +
+                  (carboneData.tablettes[brand] || carboneData.tablettes.autre)
+              );
+          }, 0) / data.brands.length
+        : carboneData.tablettes.autre;
 
-    const tabletBrands = carboneData.tablettes;
-    let totalEmission = 0;
+    // Impact fabrication annualisé + impact inutilisé
+    const totalEmission =
+        ((count + unused) * manufacturingEmission) / changeRate;
 
-    if (brands.length > 0) {
-        let marqueEmission = 0;
-        for (const brand of brands) {
-            marqueEmission +=
-                tabletBrands[brand.toLowerCase()] || tabletBrands.autre;
-        }
-        totalEmission =
-            ((count + unused) * (marqueEmission / brands.length)) / changeRate;
-    } else {
-        const moyenneEmission = 80; // kg CO2e en moyenne
-        totalEmission = ((count + unused) * moyenneEmission) / changeRate;
-    }
-
-    console.log(
-        'Empreinte calculée (Tablette):',
-        totalEmission.toFixed(2),
-        'kg CO2e/an'
-    );
+    console.log(`Tablet Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
     return parseFloat(totalEmission.toFixed(2));
 }
 
 export function calculateTVFootprint(data) {
     console.log("Calcul de l'empreinte carbone de la télévision...", data);
-
-    const count = data.count || 0;
-    const changeRate = data.changeRate || 5;
+    const count = data.count;
+    const changeRate = data.changeRate;
     const dailyHours = data.dailyHours || 0;
 
     if (count === 0) return 0;
 
-    const tvData = carboneData.televisions;
-    const fabricationEmission = (count * tvData.television) / changeRate;
-    const utilisationEmission =
-        (count * (dailyHours * tvData.parJour) * 365) / 1000;
-    const totalEmission = fabricationEmission + utilisationEmission;
+    // Fabrication (kgCO2e/appareil)
+    const manufacturingEmission = carboneData.televisions.television;
+    const annualManufacturing = (manufacturingEmission * count) / changeRate;
 
-    console.log(
-        'Empreinte calculée (TV):',
-        totalEmission.toFixed(2),
-        'kg CO2e/an'
-    );
+    // Usage (kgCO2e/an pour l'ensemble des TV)
+    // Utilisation directe du facteur annuel moyen et mise à l'échelle (simple)
+    // Si usage_annuel_television est pour UNE TV avec usage moyen (ex: 3h/j)
+    const typicalDailyHours = 3; // Hypothèse d'usage moyen
+    const usagePerTVperYear = carboneData.televisions.usage_annuel_television;
+    const annualUsage =
+        count * usagePerTVperYear * (dailyHours / typicalDailyHours);
+
+    const totalEmission = annualManufacturing + annualUsage;
+    console.log(`TV Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
     return parseFloat(totalEmission.toFixed(2));
 }
 
 export function calculateConsoleFootprint(data) {
     console.log("Calcul de l'empreinte carbone de la console de jeux...", data);
-
-    const count = data.count || 0;
-    const changeRate = data.changeRate || 5;
+    const count = data.count;
+    const changeRate = data.changeRate;
     const weeklyHours = data.weeklyHours || 0;
 
     if (count === 0) return 0;
 
-    const consoleData = carboneData.consoles;
-    const fabricationEmission = (count * consoleData.console) / changeRate;
-    const utilisationEmission =
-        (count * (weeklyHours * consoleData.parSemaine) * 52) / 1000;
-    const totalEmission = fabricationEmission + utilisationEmission;
+    // Fabrication (kgCO2e/appareil)
+    const manufacturingEmission = carboneData.consoles.console;
+    const annualManufacturing = (manufacturingEmission * count) / changeRate;
 
-    console.log(
-        'Empreinte calculée (Console):',
-        totalEmission.toFixed(2),
-        'kg CO2e/an'
-    );
+    // Usage (gCO2e/semaine pour UNE console avec usage moyen)
+    // Mise à l'échelle par rapport aux heures réelles
+    const typicalWeeklyHours = 10; // Hypothèse d'usage moyen pour le facteur donné
+    const usagePerTVperWeek_g = carboneData.consoles.parSemaine;
+    const annualUsage_g =
+        count * usagePerTVperWeek_g * 52 * (weeklyHours / typicalWeeklyHours);
+    const annualUsage_kg = annualUsage_g / 1000; // Conversion g -> kg
+
+    const totalEmission = annualManufacturing + annualUsage_kg;
+    console.log(`Console Emission: ${totalEmission.toFixed(2)} kg CO2e/an`);
     return parseFloat(totalEmission.toFixed(2));
 }
 
-/**
- * Fonction pour calculer l'empreinte de la messagerie
- * @param {object} data - Données du formulaire messagerie
- * @param {string[] | undefined} data.services
- * @param {number} data.messagesPerDay
- * @param {number} data.mediaSharedPerDay
- * @param {number} data.emailsSentPerDay
- * @param {number} data.emailsReceivedPerDay
- * @param {string[] | undefined} data.socialNetworks
- * @param {number} data.socialMediaHours
- * @param {number} data.socialMediaShares
- * @returns {number} Empreinte carbone annuelle (kg CO2e/an)
- */
 export function calculateMessagingFootprint(data) {
     console.log("Calcul de l'empreinte carbone de la messagerie...", data);
-    // Logique de calcul à implémenter
-    return 0;
+    let totalEmission_g = 0;
+
+    // message texte perso
+    const avgMessageFactor_g = data.services?.length
+        ? data.services.reduce(
+              (sum, service) =>
+                  sum +
+                  (carboneData.messagers[service] ||
+                      carboneData.messagers.autreMessagerie),
+              0
+          ) / data.services.length
+        : carboneData.messagers.autreMessagerie;
+    totalEmission_g += (data.messagesPerDay || 0) * 365 * avgMessageFactor_g;
+
+    // video par message
+    const mediaFactor_g = carboneData.messagers.envoiePhoto;
+    totalEmission_g += (data.mediaSharedPerDay || 0) * 365 * mediaFactor_g;
+
+    // mail perso
+    totalEmission_g +=
+        (data.emailsSentPerDay || 0) * 365 * carboneData.messagers.envoieEmail;
+    totalEmission_g +=
+        (data.emailsReceivedPerDay || 0) *
+        365 *
+        carboneData.messagers.recepEmail;
+
+    // reseaux sociaux
+    const avgSocialFactorPerHour_g = data.socialNetworks?.length
+        ? data.socialNetworks.reduce(
+              (sum, network) =>
+                  sum +
+                  (carboneData.messagers[network] ||
+                      carboneData.messagers.autreReseau),
+              0
+          ) / data.socialNetworks.length
+        : 0;
+    totalEmission_g +=
+        (data.socialMediaHours || 0) * 365 * avgSocialFactorPerHour_g;
+
+    // photo video sur réseaux sociaux
+    totalEmission_g += (data.socialMediaShares || 0) * 365 * mediaFactor_g;
+
+    const totalEmission_kg = totalEmission_g / 1000; // conversion
+    console.log(
+        `Messaging Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+    );
+    return parseFloat(totalEmission_kg.toFixed(2));
 }
 
-/**
- * Fonction pour calculer l'empreinte du streaming
- * @param {object} data - Données du formulaire streaming
- * @param {string[] | undefined} data.videoServices
- * @param {number} data.videoHours
- * @param {string[] | undefined} data.musicServices
- * @param {number} data.musicHours
- * @param {string[] | undefined} data.cloudGamingServices
- * @param {number} data.cloudGamingHours
- * @returns {number} Empreinte carbone annuelle (kg CO2e/an)
- */
 export function calculateStreamingFootprint(data) {
     console.log("Calcul de l'empreinte carbone du streaming...", data);
-    // Logique de calcul à implémenter
-    return 0;
+    let totalEmission_g = 0;
+
+    // straming video
+    const avgVideoFactorPerHour_g = data.videoServices?.length
+        ? data.videoServices.reduce(
+              (sum, service) =>
+                  sum +
+                  (carboneData.streaming[service] ||
+                      carboneData.streaming.autreStreamingVideo),
+              0
+          ) / data.videoServices.length
+        : 0;
+    totalEmission_g += (data.videoHours || 0) * 365 * avgVideoFactorPerHour_g;
+
+    // musique
+    // TODO : ALLER CHERCHER LE FACTEUR
+    const musicFactorPerHour_g = 5; // 5 gCO2e/heure
+    if (data.musicServices?.length) {
+        totalEmission_g += (data.musicHours || 0) * 365 * musicFactorPerHour_g;
+    }
+
+    // cloud gaming
+    const avgGamingFactorPerHour_g = data.cloudGamingServices?.length
+        ? data.cloudGamingServices.reduce(
+              (sum, service) =>
+                  sum +
+                  (carboneData.messagers[service] ||
+                      carboneData.messagers.autreCloudGaming),
+              0
+          ) / data.cloudGamingServices.length
+        : 0;
+    totalEmission_g +=
+        (data.cloudGamingHours || 0) * 52 * avgGamingFactorPerHour_g;
+
+    const totalEmission_kg = totalEmission_g / 1000;
+    console.log(
+        `Streaming Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`
+    );
+    return parseFloat(totalEmission_kg.toFixed(2));
 }
 
-/**
- * Fonction pour calculer l'empreinte de l'IA
- * @param {object} data - Données du formulaire IA
- * @param {string[] | undefined} data.aiServices
- * @param {number} data.llmRequests
- * @param {number} data.aiImages
- * @returns {number} Empreinte carbone annuelle (kg CO2e/an)
- */
 export function calculateAIFootprint(data) {
     console.log("Calcul de l'empreinte carbone de l'IA...", data);
-    // Logique de calcul à implémenter
-    return 0;
+    let totalEmission_g = 0;
+
+    const avgAiFactorPerRequest_g = data.aiServices?.length
+        ? data.aiServices.reduce(
+              (sum, service) =>
+                  sum + (carboneData.IA[service] || carboneData.IA.Autre),
+              0
+          ) / data.aiServices.length
+        : 0;
+
+    // requêtes LLM
+    totalEmission_g += (data.llmRequests || 0) * 365 * avgAiFactorPerRequest_g;
+
+    // génération d'images
+    totalEmission_g += (data.aiImages || 0) * 365 * avgAiFactorPerRequest_g;
+
+    const totalEmission_kg = totalEmission_g / 1000;
+    console.log(`AI Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    return parseFloat(totalEmission_kg.toFixed(2));
 }
 
-/**
- * Fonction pour calculer l'empreinte du cloud
- * @param {object} data - Données du formulaire Cloud
- * @param {string[] | undefined} data.storageServices
- * @param {number} data.storageSize
- * @param {number} data.filesShared
- * @returns {number} Empreinte carbone annuelle (kg CO2e/an)
- */
 export function calculateCloudFootprint(data) {
     console.log("Calcul de l'empreinte carbone du cloud...", data);
-    // Logique de calcul à implémenter
-    return 0;
+    let totalEmission_kg = 0;
+
+    // stockage
+    const avgStorageFactorPerGbPerMonth_mg = data.storageServices?.length
+        ? data.storageServices.reduce(
+              (sum, service) =>
+                  sum +
+                  (carboneData.stockage[service] ||
+                      carboneData.stockage.autreStockage),
+              0
+          ) / data.storageServices.length
+        : 0;
+    const storageEmissionAnnual_mg =
+        (data.storageSize || 0) * avgStorageFactorPerGbPerMonth_mg * 12;
+    totalEmission_kg += storageEmissionAnnual_mg / 1000000;
+
+    // TODO : ALLER CHERCHER LE FACTEUR
+    const fileShareFactor_g = 1;
+    const fileShareEmissionAnnual_g =
+        (data.filesShared || 0) * 365 * fileShareFactor_g;
+    totalEmission_kg += fileShareEmissionAnnual_g / 1000;
+
+    console.log(`Cloud Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    return parseFloat(totalEmission_kg.toFixed(2));
 }
 
-/**
- * Fonction pour calculer l'empreinte liée au travail
- * @param {object} data - Données du formulaire Travail
- * @param {string[] | undefined} data.proCommunication
- * @param {number} data.proMessages
- * @param {number} data.proEmailsSent
- * @param {number} data.proEmailsReceived
- * @param {number} data.videoConfHours
- * @param {string} data.cameraUsage
- * @returns {number} Empreinte carbone annuelle (kg CO2e/an)
- */
 export function calculateWorkFootprint(data) {
     console.log("Calcul de l'empreinte carbone liée au travail...", data);
-    // Logique de calcul à implémenter
-    return 0;
+    let totalEmission_g = 0;
+    let totalEmission_kg = 0;
+
+    // emails professionnels
+    totalEmission_g +=
+        (data.proEmailsSent || 0) * 365 * carboneData.messagers.envoieEmail;
+    totalEmission_g +=
+        (data.proEmailsReceived || 0) * 365 * carboneData.messagers.recepEmail;
+
+    // messages professionnels
+    const avgProMessageFactor_g = carboneData.messagers.autreMessagerie;
+    totalEmission_g += (data.proMessages || 0) * 365 * avgProMessageFactor_g;
+
+    // visioconférence
+    const avgVideoConfFactorPerHour_g = data.proCommunication?.length
+        ? data.proCommunication.reduce(
+              (sum, service) =>
+                  sum +
+                  (carboneData.professionnel[service] ||
+                      carboneData.professionnel.autre),
+              0
+          ) / data.proCommunication.length
+        : 0;
+    let videoConfEmission_g =
+        (data.videoConfHours || 0) * 52 * avgVideoConfFactorPerHour_g; // Heures par semaine -> année
+
+    // TODO : ALLER CHERCHER LE FACTEUR
+    let cameraMultiplier = 1.0;
+    if (data.cameraUsage === 'always') cameraMultiplier = 1.2;
+    if (data.cameraUsage === 'sometimes') cameraMultiplier = 1.1;
+    videoConfEmission_g *= cameraMultiplier;
+
+    totalEmission_g += videoConfEmission_g;
+
+    totalEmission_kg = totalEmission_g / 1000;
+
+    console.log(`Work Emission: ${totalEmission_kg.toFixed(2)} kg CO2e/an`);
+    return parseFloat(totalEmission_kg.toFixed(2));
 }
