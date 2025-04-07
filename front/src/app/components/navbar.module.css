@@ -1,13 +1,13 @@
 .logoText {
-    font-weight: bold;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 32px;
     line-height: 41px;
     color: var(--color-5);
 }
 
 .navItemText {
-    font-weight: 300;
-    font-size: 15px;
+    font-weight: 400;
+    font-size: 20px;
     line-height: 28px;
     color: var(--color-5);
 }
