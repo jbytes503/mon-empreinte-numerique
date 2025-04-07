@@ -1,0 +1,71 @@
+/* Styles pour NumericInput */
+.formGroup {
+    margin-bottom: 1rem; /* Espace en dessous de chaque groupe */
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.formGroup input[type='number'] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #000;
+    background-color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Assure que padding et border sont inclus dans la largeur */
+}
+
+/* Styles pour CheckboxGroup */
+.formQuestion {
+    margin-bottom: 1rem;
+}
+
+.checkboxGroupLabel {
+    display: block;
+    margin-bottom: 0.75rem; /* Un peu plus d'espace pour le label du groupe */
+    font-weight: 500;
+    color: #000;
+}
+
+.checkboxGroup {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(120px, 1fr)
+    ); /* Colonnes automatiques */
+    gap: 0.75rem; /* Espace entre les cases */
+}
+
+.checkboxItem {
+    display: flex;
+    align-items: center;
+}
+
+.checkboxItem input[type='checkbox'] {
+    margin-right: 0.5rem; /* Espace entre la case et le texte */
+    cursor: pointer;
+}
+
+.checkboxItem label {
+    font-weight: normal; /* Texte normal pour les options */
+    color: #000;
+    cursor: pointer;
+}
+
+/* Styles pour SelectInput */
+.formGroup select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black; /* Bordure noire */
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    background-color: white; /* Fond blanc */
+    color: var(--text-color);
+    cursor: pointer;
+}
