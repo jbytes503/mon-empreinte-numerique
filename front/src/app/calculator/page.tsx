@@ -1096,123 +1096,32 @@ export default function Page() {
                         />
                     </QuestionCard>
                 </div>
-
-                {/* TODO : SUPPRIMER CE BLOC */}
-                {(smartphoneResult > 0 ||
-                    computerResult > 0 ||
-                    tabletResult > 0 ||
-                    tvResult > 0 ||
-                    consoleResult > 0 ||
-                    messagingResult > 0 ||
-                    streamingResult > 0 ||
-                    aiResult > 0 ||
-                    cloudResult > 0 ||
-                    workResult > 0) && (
-                    <div className={styles.resultContainer}>
-                        <h2>Résultats (kg CO2e/an)</h2>
-                        {smartphoneResult > 0 && (
-                            <p>
-                                Smartphones:{' '}
-                                <span className={styles.resultValue}>
-                                    {smartphoneResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {computerResult > 0 && (
-                            <p>
-                                Ordinateurs:{' '}
-                                <span className={styles.resultValue}>
-                                    {computerResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {tabletResult > 0 && (
-                            <p>
-                                Tablettes:{' '}
-                                <span className={styles.resultValue}>
-                                    {tabletResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {tvResult > 0 && (
-                            <p>
-                                Télévisions:{' '}
-                                <span className={styles.resultValue}>
-                                    {tvResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {consoleResult > 0 && (
-                            <p>
-                                Consoles:{' '}
-                                <span className={styles.resultValue}>
-                                    {consoleResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {messagingResult > 0 && (
-                            <p>
-                                Messagerie & Réseaux:{' '}
-                                <span className={styles.resultValue}>
-                                    {messagingResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {streamingResult > 0 && (
-                            <p>
-                                Streaming:{' '}
-                                <span className={styles.resultValue}>
-                                    {streamingResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {aiResult > 0 && (
-                            <p>
-                                IA:{' '}
-                                <span className={styles.resultValue}>
-                                    {aiResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {cloudResult > 0 && (
-                            <p>
-                                Cloud:{' '}
-                                <span className={styles.resultValue}>
-                                    {cloudResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        {workResult > 0 && (
-                            <p>
-                                Travail:{' '}
-                                <span className={styles.resultValue}>
-                                    {workResult.toFixed(2)}
-                                </span>
-                            </p>
-                        )}
-                        <hr className={styles.resultSeparator} />
-                        <p className={styles.totalResult}>
-                            <strong>Total Global: </strong>
-                            <span className={styles.resultValue}>
-                                {
-                                    // Somme de tous les résultats
-                                    (
-                                        smartphoneResult +
-                                        computerResult +
-                                        tabletResult +
-                                        tvResult +
-                                        consoleResult +
-                                        messagingResult +
-                                        streamingResult +
-                                        aiResult +
-                                        cloudResult +
-                                        workResult
-                                    ).toFixed(2)
-                                }
-                            </span>
-                        </p>
-                    </div>
-                )}
+                <div className={styles.buttonContainer}>
+                    <button
+                        className={styles.calculateButton}
+                        onClick={() => {
+                            const total =
+                                smartphoneResult +
+                                computerResult +
+                                tabletResult +
+                                tvResult +
+                                consoleResult +
+                                messagingResult +
+                                streamingResult +
+                                aiResult +
+                                cloudResult +
+                                workResult;
+                            console.log(
+                                'Empreinte carbone totale:',
+                                total.toFixed(2),
+                                'kg CO2e/an'
+                            );
+                            window.location.href = '/about';
+                        }}
+                    >
+                        Calculer
+                    </button>
+                </div>
             </div>
         </main>
     );
