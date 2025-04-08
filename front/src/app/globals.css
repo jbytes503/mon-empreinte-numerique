@@ -30,9 +30,9 @@ body {
     font-family: 'Space Grotesk';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-
-    padding: 60px;
+    padding: 0 2.5em;
     min-height: 100svh;
+
 }
 
 * {
