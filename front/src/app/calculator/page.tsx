@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import styles from './page.module.css';
+import Title from '../components/titles';
 import QuestionCard from '../components/calculator/card';
 import NumericInput from '../components/calculator/questions/NumericInput';
 import CheckboxGroup from '../components/calculator/questions/CheckboxGroup';
@@ -477,9 +478,7 @@ export default function Page() {
     return (
         <main className={styles.main}>
             <div className={styles.container}>
-                <h1 className={styles.title}>
-                    Calculateur d&apos;empreinte carbone numérique
-                </h1>
+                <Title name="Calculer mon empreinte" />
                 <div className={styles.cardContainer}>
                     <QuestionCard
                         number="01"

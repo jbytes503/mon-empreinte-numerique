@@ -49,7 +49,7 @@ const QuestionCard = ({
         setFilled(true);
 
         // Replier la carte
-        setExpanded(true);
+        setExpanded(false);
     };
 
     const cardClassName = `${styles.card} ${expanded ? styles.expanded : ''} ${filled && !expanded ? styles.filled : ''}`;
