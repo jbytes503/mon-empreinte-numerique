@@ -18,36 +18,36 @@ export default async function Page() {
                 <div className={styles.header}>
                     <div className='header-description'>
                         <p>
-                        L’empreinte numérique désigne l’ensemble des
-                        impacts environnementaux liés à l’utilisation
-                        des technologies numériques. Elle est particulièrement
-                        visible à travers l’empreinte carbone générée par nos
-                        dispositifs électroniques : ordinateurs, téléphones,
-                        tablettes, objets connectés, mais aussi les réseaux et
-                        les centres de données qui les soutiennent.
+                        L’empreinte numérique désigne l’ensemble des 
+                        impacts environnementaux liés à l’utilisation 
+                        des technologies numériques. Elle est particulièrement 
+                        visible à travers l’empreinte carbone générée par nos 
+                        dispositifs électroniques : ordinateurs, téléphones, 
+                        tablettes, objets connectés, mais aussi les réseaux et 
+                        les centres de données qui les soutiennent. 
                         </p>
                         <p>
-                        Cet impact commence bien avant l’allumage de nos appareils.
-                        La fabrication d’un simple smartphone ou d’un ordinateur
-                        nécessite l’extraction de ressources naturelles, souvent
-                        rares, ainsi que des processus industriels complexes et
-                        énergivores. L’assemblage, le transport et la distribution
-                        à travers le monde engendrent à eux seuls une quantité
-                        importante d’émissions de gaz à effet de serre. À titre
-                        d’exemple, la majorité de l’empreinte carbone d’un appareil
+                        Cet impact commence bien avant l’allumage de nos appareils. 
+                        La fabrication d’un simple smartphone ou d’un ordinateur 
+                        nécessite l’extraction de ressources naturelles, souvent 
+                        rares, ainsi que des processus industriels complexes et 
+                        énergivores. L’assemblage, le transport et la distribution 
+                        à travers le monde engendrent à eux seuls une quantité 
+                        importante d’émissions de gaz à effet de serre. À titre 
+                        d’exemple, la majorité de l’empreinte carbone d’un appareil 
                         est déjà produite avant même sa première utilisation.
                         </p>
                         <p>
-                        L’utilisation quotidienne de ces équipements continue
-                        d’alimenter cette empreinte. Chaque action numérique
-                        (regarder une vidéo, envoyer un message, effectuer une
-                        recherche, sauvegarder un fichier)repose sur un vaste
-                        réseau d’infrastructures : antennes, câbles sous-marins,
-                        serveurs, data centers… Tous ces systèmes consomment de
-                        l’électricité en permanence, souvent issue de sources
-                        fossiles, et participent donc aux émissions de CO₂.
-                        Même un geste aussi simple que l’envoi d’un e-mail
-                        peut représenter une dépense énergétique non négligeable
+                        L’utilisation quotidienne de ces équipements continue 
+                        d’alimenter cette empreinte. Chaque action numérique 
+                        (regarder une vidéo, envoyer un message, effectuer une 
+                        recherche, sauvegarder un fichier) repose sur un vaste 
+                        réseau d’infrastructures : antennes, câbles sous-marins, 
+                        serveurs, data centers… Tous ces systèmes consomment de 
+                        l’électricité en permanence, souvent issue de sources 
+                        fossiles, et participent donc aux émissions de CO₂. 
+                        Même un geste aussi simple que l’envoi d’un e-mail 
+                        peut représenter une dépense énergétique non négligeable 
                         lorsqu’il est multiplié à grande échelle.
                         </p>
                     </div>
