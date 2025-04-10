@@ -1,3 +1,9 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 0;
+}
+
 .logoText {
     font-weight: 500;
     font-size: 32px;
@@ -10,6 +16,13 @@
     font-size: 20px;
     line-height: 28px;
     color: var(--color-5);
+    margin: 0 15px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* .hiddenButton : style par défaut */
@@ -17,7 +30,6 @@
     border: 1px solid rgba(0, 0, 0, 0); /* Bordure semi-transparente noire */
     border-radius: 6px;
     padding: 4px 6px;
-    margin: 0 4px;
     box-sizing: border-box;
     transition: border-color 0.3s ease; /* Transition fluide pour la bordure */
 }
@@ -27,6 +39,5 @@
     border: 1px solid var(--color-5);
     border-radius: 6px;
     padding: 4px 6px;
-    margin: 0 4px;
     box-sizing: border-box;
 }
