@@ -3,6 +3,9 @@ import { Metadata } from 'next';
 import styles from './page.module.css';
 import Image from 'next/image';
 import Title from '../components/titles';
+import { FaRegThumbsUp } from 'react-icons/fa';
+import { IoIosPhonePortrait, IoIosTabletPortrait , IoIosCloudOutline, IoIosPlayCircle, IoIosLaptop  } from "react-icons/io";
+import { IoMailOutline, IoTvOutline, IoGameControllerOutline } from 'react-icons/io5';
 import DispositifCard from '../components/learn-more/card';
 
 export const metadata: Metadata = {
@@ -63,29 +66,29 @@ export default async function Page() {
                     <DispositifCard
                         title="Ordinateur"
                         description="Sa fabrication nécessite des métaux rares et consomme beaucoup d’énergie, tandis que son utilisation et son recyclage posent des défis écologiques."
-                        image="/images/ordinateur.png"
+                        icon={<IoIosLaptop  size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Smartphone"
                         description="Très gourmand en ressources dès sa fabrication, il a une durée de vie limitée et son recyclage reste insuffisant."
-                        image="/images/smartphone.png"
+                        icon={<IoIosPhonePortrait size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Tablette"
                         description="Moins énergivore qu’un ordinateur, elle dépend fortement des services en ligne et est difficile à recycler."
-                        image="/images/tablette.png"
+                        icon={<IoIosTabletPortrait size={48} color="#191A23" />}
                     />
                 </div>
                 <div className={styles.cards}>
                     <DispositifCard
                         title="Télévision"
                         description="Sa fabrication et son utilisation, notamment le streaming, génèrent une empreinte carbone importante."
-                        image="/images/tv.png"
+                        icon={<IoTvOutline size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Console de Jeux Vidéo"
                         description="Son impact environnemental vient de sa consommation électrique et de l’obsolescence rapide des modèles."
-                        image="/images/console.png"
+                        icon={<IoGameControllerOutline  size={48} color="#191A23" />}
                     />
                 </div>
                 <Title name="L'empreinte numérique des services web et cloud" />
@@ -93,24 +96,24 @@ export default async function Page() {
                     <DispositifCard
                         title="Stockage et cloud computing"
                         description="Le stockage et le traitement dans le cloud nécessitent des infrastructures importantes consommant constamment de l'énergie, ce qui génère une empreinte carbone significative."
-                        image="/images/cloud.png"
+                        icon={<IoIosCloudOutline size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Services de messagerie et communication"
                         description="L'envoi de messages, d’e-mails ou les appels vidéo nécessitent des serveurs et des centres de données, générant ainsi des émissions à cause d’une consommation électrique continue."
-                        image="/images/messagerie.png"
+                        icon={<IoMailOutline size={48} color="#191A23" />}
                     />
                 </div>
                 <div className={styles.cards}>
                     <DispositifCard
                         title="Réseaux sociaux"
                         description="Publier des photos, des vidéos et garder toujours disponibles les publications implique l'utilisation intensive de centres de données, augmentant indirectement les émissions de CO₂."
-                        image="/images/reseaux_sociaux.png"
+                        icon={<FaRegThumbsUp size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Service de streaming et divertissement"
                         description=" La lecture constante de vidéos et de musique en streaming consomme beaucoup d'énergie en raison du transfert important de données, ce qui augmente considérablement l'empreinte carbone."
-                        image="/images/streaming.png"
+                        icon={<IoIosPlayCircle size={48} color="#191A23" />}
                     />
                 </div>
             </div>

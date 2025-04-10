@@ -3,16 +3,16 @@ import styles from './card.module.css';
 
 interface CardProps {
     title: string;
-    image: string;
+    icon: ReactNode;
     description: string;
 }
 
-const DispositifCard = ({ title, image, description }: CardProps) => {
+const DispositifCard = ({ title, icon, description }: CardProps) => {
     return (
         <div className={styles.card}>
             <div className={styles.cardHeader}>
                 <div className={styles.cardImage}>
-                    <img src={image} alt={title} className={styles.image} />
+                    {icon}
                 </div>
                 <h3>{title}</h3>
             </div>
