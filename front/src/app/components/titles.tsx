@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import styles from './titles.module.css';
 
 interface TitleProps {
-	name: string;
+    name: string;
 }
 
 const Title = ({ name }: TitleProps) => {
