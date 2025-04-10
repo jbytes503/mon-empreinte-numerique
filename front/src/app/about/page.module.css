@@ -11,7 +11,8 @@
 }
 
 .authors {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2em;
+    justify-content: center;
 }
