@@ -17,7 +17,7 @@ const CarbonFootprint: React.FC<CarbonFootprintProps> = ({
         <div className={styles['carbon-footprint-container']}>
             <div className={styles['main-metric']}>
                 <div className={styles['co2-amount']}>
-                    {co2Amount} tonnes de CO2
+                    {co2Amount} kg de CO2e
                 </div>
                 <div className={styles['time-period']}>par an</div>
             </div>
@@ -37,7 +37,7 @@ const CarbonFootprint: React.FC<CarbonFootprintProps> = ({
 
             <div className={styles['comparison']}>
                 En un an, votre empreinte carbone numérique équivaut à{' '}
-                {tripComparison} voyages en voiture de Lyon à Nantes !
+                {tripComparison} voyages en voiture de Lyon à Dijon !
                 <span className={styles['smileys']}>🚗💨</span>
             </div>
         </div>
