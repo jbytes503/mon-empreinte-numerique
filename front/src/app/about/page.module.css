@@ -12,7 +12,9 @@
 
 .authors {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2em;
-    justify-content: center;
+    padding: 1em;
+    justify-items: center;
+    align-items: center;
 }
