@@ -520,7 +520,7 @@ export default function Page() {
                         <NumericInput
                             id="smartphone-changeRate"
                             label="Combien d'années gardez-vous votre smartphone avant de le changer ?"
-                            min={1}
+                            min={0}
                             placeholder="Ex: 2"
                             value={
                                 (formData.smartphone as DeviceFormData)
@@ -589,7 +589,7 @@ export default function Page() {
                         <NumericInput
                             id="computer-changeRate"
                             label="Combien d'années gardez-vous votre ordinateur avant de le changer ?"
-                            min={1}
+                            min={0}
                             placeholder="Ex: 3"
                             value={
                                 (formData.computer as DeviceFormData).changeRate
@@ -643,7 +643,7 @@ export default function Page() {
                         <NumericInput
                             id="tablet-changeRate"
                             label="Combien d'années gardez-vous votre tablette avant de la changer ?"
-                            min={1}
+                            min={0}
                             placeholder="Ex: 3"
                             value={
                                 (formData.tablet as DeviceFormData).changeRate
@@ -687,7 +687,7 @@ export default function Page() {
                         <NumericInput
                             id="tv-changeRate"
                             label="Combien d'années gardez-vous votre télévision avant de la changer ?"
-                            min={1}
+                            min={0}
                             placeholder="Ex: 5"
                             value={(formData.tv as DeviceFormData).changeRate}
                             onChange={handleInputChange('tv')}
@@ -730,7 +730,7 @@ export default function Page() {
                         <NumericInput
                             id="console-changeRate"
                             label="Combien d'années gardez-vous votre console de jeux avant de la changer ?"
-                            min={1}
+                            min={0}
                             placeholder="Ex: 5"
                             value={
                                 (formData.console as DeviceFormData).changeRate
