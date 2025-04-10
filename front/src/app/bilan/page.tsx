@@ -9,15 +9,33 @@ import styles from './page.module.css';
 import Title from '../components/titles';
 import Button from '../components/home/button';
 
+// Mapping pour des noms plus lisibles
+const emissionNames: { [key: string]: string } = {
+    smartphone: 'Smartphones',
+    computer: 'Ordinateurs',
+    tablet: 'Tablettes',
+    tv: 'Télévisions',
+    console: 'Consoles de jeux',
+    messaging: 'Messagerie & Réseaux',
+    streaming: 'Streaming Vidéo/Musique',
+    ai: 'Intelligence Artificielle',
+    cloud: 'Stockage Cloud',
+    work: 'Communication Pro',
+};
+
 export default function Page() {
     const searchParams = useSearchParams();
     const [totalCO2, setTotalCO2] = useState<number>(0);
     const [randomTips, setRandomTips] = useState<
         { id: number; text: string }[]
     >([]);
+    const [topEmissions, setTopEmissions] = useState<
+        { name: string; value: number }[]
+    >([]);
 
     useEffect(() => {
         let sum = 0;
+        const individualValues: { [key: string]: number } = {};
         const expectedKeys = [
             'smartphone',
             'computer',
@@ -39,6 +57,7 @@ export default function Page() {
             if (!isNaN(numValue)) {
                 console.log(`  ${key}: ${valueString} -> ${numValue}`);
                 sum += numValue;
+                individualValues[key] = numValue;
             } else {
                 console.log(
                     `  ${key}: ${valueString} -> Ignoré (non numérique)`
@@ -48,6 +67,17 @@ export default function Page() {
 
         setTotalCO2(sum);
         console.log('Total CO2 calculé à partir des paramètres:', sum);
+
+        const emissionsArray = Object.entries(individualValues)
+            .map(([key, value]) => ({
+                name: emissionNames[key] || key,
+                value: value,
+            }))
+            .filter((item) => item.value > 0)
+            .sort((a, b) => b.value - a.value);
+
+        setTopEmissions(emissionsArray.slice(0, 3));
+        console.log('Top 3 des émissions:', emissionsArray.slice(0, 3));
 
         const allTips = [
             {
@@ -121,26 +151,25 @@ export default function Page() {
                     co2Amount={totalCO2}
                     maxScale={2500}
                     progressPercentage={(totalCO2 * 100) / 2500}
-                    tripComparison={Number((totalCO2 / 43.5).toFixed(2))}
+                    tripComparison={Number((totalCO2 / 43.5).toFixed(0))}
                 />
             </section>
             <Title name="Mes principaux postes d'émissions" />
             <section className={`${styles.section}`}>
-                <PosteDEmission
-                    nom="Poste d'émission 1"
-                    pos={1}
-                    co2Amount={0}
-                />
-                <PosteDEmission
-                    nom="Poste d'émission 2"
-                    pos={2}
-                    co2Amount={0}
-                />
-                <PosteDEmission
-                    nom="Poste d'émission 3"
-                    pos={3}
-                    co2Amount={0}
-                />
+                {topEmissions.length > 0 ? (
+                    topEmissions.map((emission, index) => (
+                        <PosteDEmission
+                            key={emission.name}
+                            nom={emission.name}
+                            pos={index + 1}
+                            co2Amount={emission.value}
+                        />
+                    ))
+                ) : (
+                    <p className={styles.infoText}>
+                        Aucun poste d'émission significatif à afficher.
+                    </p>
+                )}
             </section>
             <h3 className={`${styles.tt}`}>
                 Voici quelques idées pour vous aider à réduire votre impact :
