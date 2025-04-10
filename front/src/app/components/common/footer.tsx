@@ -10,14 +10,14 @@ const Footer = () => {
                         Mon Empreinte numérique
                     </p>
                     <div className={styles.infoText}>
-                        <a href="test">L'empreinte numerique</a>
+                        <a href="learn-more">L'empreinte numerique</a>
                         <a href="about">À propos de nous</a>
                     </div>
                 </div>
                 <div className={styles.contact}>Contactez-nous:</div>
                 <p>
                     Vous pouvez ouvrir une <strong>Pull Request</strong> sur le{' '}
-                    <a href="https://github.com/jbytes503/mon-empreinte-numerique-du-projet">
+                    <a href="https://github.com/jbytes503/mon-empreinte-numerique">
                         GitHub
                     </a>{' '}
                     du projet pour nous contacter.
