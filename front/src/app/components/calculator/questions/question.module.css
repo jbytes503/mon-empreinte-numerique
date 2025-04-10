@@ -27,32 +27,30 @@
 
 .checkboxGroupLabel {
     display: block;
-    margin-bottom: 0.75rem; /* Un peu plus d'espace pour le label du groupe */
+    margin-bottom: 0.75rem;
     font-weight: 500;
     color: #000;
 }
 
 .checkboxGroup {
-    display: grid;
-    grid-template-columns: repeat(
-        auto-fill,
-        minmax(120px, 1fr)
-    ); /* Colonnes automatiques */
-    gap: 0.75rem; /* Espace entre les cases */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
 
 .checkboxItem {
     display: flex;
     align-items: center;
+    white-space: nowrap;
 }
 
 .checkboxItem input[type='checkbox'] {
-    margin-right: 0.5rem; /* Espace entre la case et le texte */
+    margin-right: 0.75rem;
     cursor: pointer;
 }
 
 .checkboxItem label {
-    font-weight: normal; /* Texte normal pour les options */
+    font-weight: normal;
     color: #000;
     cursor: pointer;
 }
