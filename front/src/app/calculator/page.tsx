@@ -7,6 +7,7 @@ import QuestionCard from '../components/calculator/card';
 import NumericInput from '../components/calculator/questions/NumericInput';
 import CheckboxGroup from '../components/calculator/questions/CheckboxGroup';
 import SelectInput from '../components/calculator/questions/SelectInput';
+import Link from 'next/link';
 import {
     calculateSmartphoneFootprint,
     calculateComputerFootprint,
@@ -1096,30 +1097,43 @@ export default function Page() {
                     </QuestionCard>
                 </div>
                 <div className={styles.buttonContainer}>
-                    <button
-                        className={styles.calculateButton}
-                        onClick={() => {
-                            const total =
-                                smartphoneResult +
-                                computerResult +
-                                tabletResult +
-                                tvResult +
-                                consoleResult +
-                                messagingResult +
-                                streamingResult +
-                                aiResult +
-                                cloudResult +
-                                workResult;
-                            console.log(
-                                'Empreinte carbone totale:',
-                                total.toFixed(2),
-                                'kg CO2e/an'
+                    {(() => {
+                        const results = {
+                            smartphone: smartphoneResult.toString(),
+                            computer: computerResult.toString(),
+                            tablet: tabletResult.toString(),
+                            tv: tvResult.toString(),
+                            console: consoleResult.toString(),
+                            messaging: messagingResult.toString(),
+                            streaming: streamingResult.toString(),
+                            ai: aiResult.toString(),
+                            cloud: cloudResult.toString(),
+                            work: workResult.toString(),
+                        };
+                        const queryString = new URLSearchParams(
+                            results
+                        ).toString();
+                        const total = Object.values(results)
+                            .map(parseFloat)
+                            .reduce(
+                                (sum, val) => sum + (isNaN(val) ? 0 : val),
+                                0
                             );
-                            window.location.href = '/bilan';
-                        }}
-                    >
-                        Calculer
-                    </button>
+
+                        console.log(
+                            'Empreinte carbone totale (calculée avant redirection):',
+                            total.toFixed(2),
+                            'kg CO2e/an'
+                        );
+
+                        return (
+                            <Link href={`/bilan?${queryString}`} passHref>
+                                <button className={styles.calculateButton}>
+                                    Calculer
+                                </button>
+                            </Link>
+                        );
+                    })()}
                 </div>
             </div>
         </main>
