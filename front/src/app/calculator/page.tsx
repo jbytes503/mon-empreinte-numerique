@@ -1115,7 +1115,7 @@ export default function Page() {
                                 total.toFixed(2),
                                 'kg CO2e/an'
                             );
-                            window.location.href = '/about';
+                            window.location.href = '/bilan';
                         }}
                     >
                         Calculer
