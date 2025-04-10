@@ -6,9 +6,9 @@ export function calculateSmartphoneFootprint(data) {
     const changeRate = data.changeRate;
     const unused = data.unused;
 
-    if (count === 0) return 0;
+    if (count === 0 && unused === 0) return 0;
 
-    const manufacturingEmission = data.brands?.length
+    const manufacturingEmissionPerDevice = data.brands?.length
         ? data.brands.reduce((sum, brand) => {
               return (
                   sum +
@@ -18,8 +18,16 @@ export function calculateSmartphoneFootprint(data) {
           }, 0) / data.brands.length
         : carboneData.smartphones.autre;
 
-    const totalEmission =
-        ((count + unused) * manufacturingEmission) / changeRate;
+    const annualManufacturing =
+        changeRate > 0
+            ? (manufacturingEmissionPerDevice * count) / changeRate
+            : 0;
+    const unusedImpact =
+        changeRate > 0 && unused > 0
+            ? (manufacturingEmissionPerDevice * unused) / changeRate
+            : 0;
+
+    const totalEmission = annualManufacturing + unusedImpact;
     console.log(
         `Empreinte carbone des smartphones: ${totalEmission.toFixed(2)} kg CO2e/an`
     );
@@ -32,7 +40,7 @@ export function calculateComputerFootprint(data) {
     const changeRate = data.changeRate;
     const unused = data.unused;
 
-    if (count === 0) return 0;
+    if (count === 0 && unused === 0) return 0;
 
     const typeEmissions = (data.types || ['portable']).map((type) => {
         switch (type) {
@@ -62,10 +70,15 @@ export function calculateComputerFootprint(data) {
     const finalBrandEmission = data.brands?.length
         ? avgBrandEmission
         : avgTypeEmission;
-    const manufacturingEmission = (avgTypeEmission + finalBrandEmission) / 2;
+    const manufacturingEmissionPerDevice =
+        (avgTypeEmission + finalBrandEmission) / 2;
 
-    const totalEmission =
-        ((count + unused) * manufacturingEmission) / changeRate;
+    const annualManufacturing =
+        changeRate > 0
+            ? (manufacturingEmissionPerDevice * (count + unused)) / changeRate
+            : 0;
+
+    const totalEmission = annualManufacturing;
     console.log(
         `Empreinte carbone des ordinateurs: ${totalEmission.toFixed(2)} kg CO2e/an`
     );
@@ -78,10 +91,9 @@ export function calculateTabletFootprint(data) {
     const changeRate = data.changeRate;
     const unused = data.unused;
 
-    if (count === 0) return 0;
+    if (count === 0 && unused === 0) return 0;
 
-    // Calculer la moyenne des marques sélectionnées (comme smartphone/ordi)
-    const manufacturingEmission = data.brands?.length
+    const manufacturingEmissionPerDevice = data.brands?.length
         ? data.brands.reduce((sum, brand) => {
               return (
                   sum +
@@ -90,10 +102,12 @@ export function calculateTabletFootprint(data) {
           }, 0) / data.brands.length
         : carboneData.tablettes.autre;
 
-    // Impact fabrication annualisé + impact inutilisé
-    const totalEmission =
-        ((count + unused) * manufacturingEmission) / changeRate;
+    const annualManufacturing =
+        changeRate > 0
+            ? (manufacturingEmissionPerDevice * (count + unused)) / changeRate
+            : 0;
 
+    const totalEmission = annualManufacturing;
     console.log(
         `Empreinte carbone des tablettes: ${totalEmission.toFixed(2)} kg CO2e/an`
     );
@@ -108,14 +122,13 @@ export function calculateTVFootprint(data) {
 
     if (count === 0) return 0;
 
-    // Fabrication (kgCO2e/appareil)
-    const manufacturingEmission = carboneData.televisions.television;
-    const annualManufacturing = (manufacturingEmission * count) / changeRate;
+    const manufacturingEmissionPerDevice = carboneData.televisions.television;
+    const annualManufacturing =
+        changeRate > 0
+            ? (manufacturingEmissionPerDevice * count) / changeRate
+            : 0;
 
-    // Usage (kgCO2e/an pour l'ensemble des TV)
-    // Utilisation directe du facteur annuel moyen et mise à l'échelle (simple)
-    // Si usage_annuel_television est pour UNE TV avec usage moyen (ex: 3h/j)
-    const typicalDailyHours = 3; // Hypothèse d'usage moyen
+    const typicalDailyHours = 3;
     const usagePerTVperYear = carboneData.televisions.usage_annuel_television;
     const annualUsage =
         count * usagePerTVperYear * (dailyHours / typicalDailyHours);
@@ -135,17 +148,17 @@ export function calculateConsoleFootprint(data) {
 
     if (count === 0) return 0;
 
-    // Fabrication (kgCO2e/appareil)
-    const manufacturingEmission = carboneData.consoles.console;
-    const annualManufacturing = (manufacturingEmission * count) / changeRate;
+    const manufacturingEmissionPerDevice = carboneData.consoles.console;
+    const annualManufacturing =
+        changeRate > 0
+            ? (manufacturingEmissionPerDevice * count) / changeRate
+            : 0;
 
-    // Usage (gCO2e/semaine pour UNE console avec usage moyen)
-    // Mise à l'échelle par rapport aux heures réelles
-    const typicalWeeklyHours = 10; // Hypothèse d'usage moyen pour le facteur donné
+    const typicalWeeklyHours = 10;
     const usagePerTVperWeek_g = carboneData.consoles.parSemaine;
     const annualUsage_g =
         count * usagePerTVperWeek_g * 52 * (weeklyHours / typicalWeeklyHours);
-    const annualUsage_kg = annualUsage_g / 1000; // Conversion g -> kg
+    const annualUsage_kg = annualUsage_g / 1000;
 
     const totalEmission = annualManufacturing + annualUsage_kg;
     console.log(
