@@ -119,9 +119,9 @@ export default function Page() {
             <section className={`${styles.section}`}>
                 <CarbonFootprint
                     co2Amount={totalCO2}
-                    maxScale={0}
-                    progressPercentage={0}
-                    tripComparison={0}
+                    maxScale={2500}
+                    progressPercentage={(totalCO2 * 100) / 2500}
+                    tripComparison={Number((totalCO2 / 43.5).toFixed(2))}
                 />
             </section>
             <Title name="Mes principaux postes d'émissions" />
