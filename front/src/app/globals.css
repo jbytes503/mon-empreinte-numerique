@@ -9,7 +9,7 @@
     --color-1: #e52713;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     :root {
         --background: #0a0a0a;
         --foreground: #ededed;
@@ -46,9 +46,9 @@ a {
     text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
     html {
-        color-scheme: dark;
+        color-scheme: light;
     }
 }
 
