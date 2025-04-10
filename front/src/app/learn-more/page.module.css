@@ -8,9 +8,15 @@
 
 .header {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
+    gap: 50px;
+}
+
+.header-description {
+    flex: 0 0 70%;
+
 }
 
 .header div {
@@ -20,8 +26,4 @@
 .header div p {
     margin: 10px 0px;
     text-align: justify;
-}
-.header img {
-    margin-left: 50px;
-    width: 300px;
 }
