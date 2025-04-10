@@ -477,8 +477,8 @@ export default function Page() {
 
     return (
         <main className={styles.main}>
+            <Title name="Calculer mon empreinte" />
             <div className={styles.container}>
-                <Title name="Calculer mon empreinte" />
                 <div className={styles.cardContainer}>
                     <QuestionCard
                         number="01"
@@ -1115,7 +1115,7 @@ export default function Page() {
                                 total.toFixed(2),
                                 'kg CO2e/an'
                             );
-                            window.location.href = '/about';
+                            window.location.href = '/bilan';
                         }}
                     >
                         Calculer
