@@ -48,7 +48,7 @@ export default async function Page() {
                 <AuthorCard
                     name="Simon Perret"
                     title="Étudiant ingénieur en informatique"
-                    description="Innovation, responsabilité, durabilité et sensibilisation."
+                    description="Étudiant passionné par la data et les projets open source, engagé pour un numérique responsable."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/perretsimon/"
                 />
