@@ -7,7 +7,6 @@ import QuestionCard from '../components/calculator/card';
 import NumericInput from '../components/calculator/questions/NumericInput';
 import CheckboxGroup from '../components/calculator/questions/CheckboxGroup';
 import SelectInput from '../components/calculator/questions/SelectInput';
-import Link from 'next/link';
 import {
     calculateSmartphoneFootprint,
     calculateComputerFootprint,
@@ -478,13 +477,13 @@ export default function Page() {
 
     return (
         <main className={styles.main}>
-            <Title name="Calculer mon empreinte" />
             <div className={styles.container}>
+                <Title name="Calculer mon empreinte" />
                 <div className={styles.cardContainer}>
                     <QuestionCard
                         number="01"
                         title="Smartphones"
-                        description="Évaluez l'impact environnemental de votre appareil, de sa fabrication à son utilisation quotidienne."
+                        description="Évaluez l’impact environnemental de votre appareil, de sa fabrication à son utilisation quotidienne."
                         isOpen={true}
                         isFilled={smartphoneResult > 0}
                         onSave={() =>
@@ -520,8 +519,8 @@ export default function Page() {
                         />
                         <NumericInput
                             id="smartphone-changeRate"
-                            label="Combien d'années gardez-vous votre smartphone avant de le changer ?"
-                            min={0}
+                            label="A quelle fréquence annuelle changez-vous de smartphone ?"
+                            min={1}
                             placeholder="Ex: 2"
                             value={
                                 (formData.smartphone as DeviceFormData)
@@ -545,7 +544,7 @@ export default function Page() {
                     <QuestionCard
                         number="02"
                         title="Ordinateurs"
-                        description="Évaluez l'impact environnemental de vos ordinateurs"
+                        description="Évaluez l’impact environnemental de vos ordinateurs"
                         isOpen={false}
                         isFilled={computerResult > 0}
                         onSave={() =>
@@ -589,8 +588,8 @@ export default function Page() {
                         />
                         <NumericInput
                             id="computer-changeRate"
-                            label="Combien d'années gardez-vous votre ordinateur avant de le changer ?"
-                            min={0}
+                            label="A quelle fréquence annuelle changez-vous d'ordinateur ?"
+                            min={1}
                             placeholder="Ex: 3"
                             value={
                                 (formData.computer as DeviceFormData).changeRate
@@ -613,7 +612,7 @@ export default function Page() {
                     <QuestionCard
                         number="03"
                         title="Tablettes"
-                        description="Évaluez l'impact environnemental de vos tablettes"
+                        description="Évaluez l’impact environnemental de vos tablettes"
                         isOpen={false}
                         isFilled={tabletResult > 0}
                         onSave={() =>
@@ -643,8 +642,8 @@ export default function Page() {
                         />
                         <NumericInput
                             id="tablet-changeRate"
-                            label="Combien d'années gardez-vous votre tablette avant de la changer ?"
-                            min={0}
+                            label="A quelle fréquence annuelle changez-vous de tablette ?"
+                            min={1}
                             placeholder="Ex: 3"
                             value={
                                 (formData.tablet as DeviceFormData).changeRate
@@ -666,7 +665,7 @@ export default function Page() {
                     <QuestionCard
                         number="04"
                         title="Télévisions"
-                        description="Évaluez l'impact environnemental de vos télévisions"
+                        description="Évaluez l’impact environnemental de vos télévisions"
                         isOpen={false}
                         isFilled={tvResult > 0}
                         onSave={() =>
@@ -687,8 +686,8 @@ export default function Page() {
                         />
                         <NumericInput
                             id="tv-changeRate"
-                            label="Combien d'années gardez-vous votre télévision avant de la changer ?"
-                            min={0}
+                            label="A quelle fréquence annuelle changez-vous de télévision ?"
+                            min={1}
                             placeholder="Ex: 5"
                             value={(formData.tv as DeviceFormData).changeRate}
                             onChange={handleInputChange('tv')}
@@ -730,8 +729,8 @@ export default function Page() {
                         />
                         <NumericInput
                             id="console-changeRate"
-                            label="Combien d'années gardez-vous votre console de jeux avant de la changer ?"
-                            min={0}
+                            label="A quelle fréquence annuelle changez-vous de console de jeux ?"
+                            min={1}
                             placeholder="Ex: 5"
                             value={
                                 (formData.console as DeviceFormData).changeRate
@@ -755,7 +754,7 @@ export default function Page() {
                     <QuestionCard
                         number="06"
                         title="Messagerie et réseaux sociaux"
-                        description="Évaluez l'impact environnemental de vos services de messagerie."
+                        description="Évaluez l’impact environnemental de vos services de messagerie."
                         isOpen={false}
                         isFilled={messagingResult > 0}
                         onSave={() =>
@@ -857,7 +856,7 @@ export default function Page() {
                     <QuestionCard
                         number="07"
                         title="Service de streaming et divertissement"
-                        description="Évaluez l'impact environnemental de vos services de streaming."
+                        description="Évaluez l’impact environnemental de vos services de streaming."
                         isOpen={false}
                         isFilled={streamingResult > 0}
                         onSave={() =>
@@ -942,7 +941,7 @@ export default function Page() {
                     <QuestionCard
                         number="08"
                         title="Intelligence Artificielle"
-                        description="Évaluez l'impact environnemental de vos services d'intelligence artificielle."
+                        description="Évaluez l’impact environnemental de vos services d'intelligence artificielle."
                         isOpen={false}
                         isFilled={aiResult > 0}
                         onSave={() =>
@@ -981,7 +980,7 @@ export default function Page() {
                     <QuestionCard
                         number="09"
                         title="Stockage Cloud"
-                        description="Évaluez l'impact environnemental de vos services de stockage cloud."
+                        description="Évaluez l’impact environnemental de vos services de stockage cloud."
                         isOpen={false}
                         isFilled={cloudResult > 0}
                         onSave={() =>
@@ -1028,7 +1027,7 @@ export default function Page() {
                     <QuestionCard
                         number="10"
                         title="Communication professionnelle"
-                        description="Évaluez l'impact environnemental de vos services de communication professionnelle."
+                        description="Évaluez l’impact environnemental de vos services de communication professionnelle."
                         isOpen={false}
                         isFilled={workResult > 0}
                         onSave={() =>
@@ -1097,43 +1096,30 @@ export default function Page() {
                     </QuestionCard>
                 </div>
                 <div className={styles.buttonContainer}>
-                    {(() => {
-                        const results = {
-                            smartphone: smartphoneResult.toString(),
-                            computer: computerResult.toString(),
-                            tablet: tabletResult.toString(),
-                            tv: tvResult.toString(),
-                            console: consoleResult.toString(),
-                            messaging: messagingResult.toString(),
-                            streaming: streamingResult.toString(),
-                            ai: aiResult.toString(),
-                            cloud: cloudResult.toString(),
-                            work: workResult.toString(),
-                        };
-                        const queryString = new URLSearchParams(
-                            results
-                        ).toString();
-                        const total = Object.values(results)
-                            .map(parseFloat)
-                            .reduce(
-                                (sum, val) => sum + (isNaN(val) ? 0 : val),
-                                0
+                    <button
+                        className={styles.calculateButton}
+                        onClick={() => {
+                            const total =
+                                smartphoneResult +
+                                computerResult +
+                                tabletResult +
+                                tvResult +
+                                consoleResult +
+                                messagingResult +
+                                streamingResult +
+                                aiResult +
+                                cloudResult +
+                                workResult;
+                            console.log(
+                                'Empreinte carbone totale:',
+                                total.toFixed(2),
+                                'kg CO2e/an'
                             );
-
-                        console.log(
-                            'Empreinte carbone totale (calculée avant redirection):',
-                            total.toFixed(2),
-                            'kg CO2e/an'
-                        );
-
-                        return (
-                            <Link href={`/bilan?${queryString}`} passHref>
-                                <button className={styles.calculateButton}>
-                                    Calculer
-                                </button>
-                            </Link>
-                        );
-                    })()}
+                            window.location.href = '/bilan';
+                        }}
+                    >
+                        Calculer
+                    </button>
                 </div>
             </div>
         </main>
