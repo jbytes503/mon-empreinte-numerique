@@ -26,5 +26,9 @@ jobs:
             - name: Install dependencies
               run: npm install
 
+            - name: Lint project
+              run: npm run lint
+              continue-on-error: true
+
             - name: Build project
               run: npm run build
