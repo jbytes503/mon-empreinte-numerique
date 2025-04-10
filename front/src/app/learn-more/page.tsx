@@ -1,7 +1,7 @@
 import React from 'react';
 import { Metadata } from 'next';
 import styles from './page.module.css';
-// import Image from 'next/image';
+import Image from 'next/image';
 import Title from '../components/titles';
 import DispositifCard from '../components/learn-more/card';
 
@@ -16,47 +16,47 @@ export default async function Page() {
             <div className="container">
                 <Title name="L'empreinte numérique" />
                 <div className={styles.header}>
-                    <div>
+                    <div className='header-description'>
                         <p>
-                            APRR, en collaboration avec des étudiants de l'INSA
-                            Lyon, nous avons développé une plateforme visant à
-                            promouvoir un numérique plus responsable. En tant
-                            que leader dans la gestion et l'exploitation d'un
-                            vaste réseau autoroutier, nous nous engageons
-                            activement dans la réduction de notre empreinte
-                            environnementale et le développement d’initiatives
-                            innovantes pour accompagner la transition
-                            écologique.
+                        L’empreinte numérique désigne l’ensemble des 
+                        impacts environnementaux liés à l’utilisation 
+                        des technologies numériques. Elle est particulièrement 
+                        visible à travers l’empreinte carbone générée par nos 
+                        dispositifs électroniques : ordinateurs, téléphones, 
+                        tablettes, objets connectés, mais aussi les réseaux et 
+                        les centres de données qui les soutiennent. 
                         </p>
                         <p>
-                            Dans cette démarche, nous avons conçu un outil
-                            simple et intuitif permettant à chacun d’évaluer
-                            l'empreinte carbone liée à ses appareils numériques
-                            (ordinateurs, smartphones) et aux services digitaux
-                            utilisés quotidiennement. Convaincus que les bonnes
-                            pratiques commencent par la sensibilisation, nous
-                            mettons également à disposition des guides et
-                            référentiels pratiques sur les gestes
-                            écoresponsables applicables au numérique. Notre
-                            objectif est d'aider les utilisateurs à mieux
-                            comprendre l'impact environnemental de leurs usages
-                            numériques et à adopter des habitudes plus
-                            respectueuses de la planète.
+                        Cet impact commence bien avant l’allumage de nos appareils. 
+                        La fabrication d’un simple smartphone ou d’un ordinateur 
+                        nécessite l’extraction de ressources naturelles, souvent 
+                        rares, ainsi que des processus industriels complexes et 
+                        énergivores. L’assemblage, le transport et la distribution 
+                        à travers le monde engendrent à eux seuls une quantité 
+                        importante d’émissions de gaz à effet de serre. À titre 
+                        d’exemple, la majorité de l’empreinte carbone d’un appareil 
+                        est déjà produite avant même sa première utilisation.
                         </p>
                         <p>
-                            À travers cet outil et nos nombreuses actions
-                            pédagogiques, nous nous inscrivons comme des acteurs
-                            engagés pour un avenir numérique durable et
-                            respectueux de l'environnement.
+                        L’utilisation quotidienne de ces équipements continue 
+                        d’alimenter cette empreinte. Chaque action numérique 
+                        (regarder une vidéo, envoyer un message, effectuer une 
+                        recherche, sauvegarder un fichier) repose sur un vaste 
+                        réseau d’infrastructures : antennes, câbles sous-marins, 
+                        serveurs, data centers… Tous ces systèmes consomment de 
+                        l’électricité en permanence, souvent issue de sources 
+                        fossiles, et participent donc aux émissions de CO₂. 
+                        Même un geste aussi simple que l’envoi d’un e-mail 
+                        peut représenter une dépense énergétique non négligeable 
+                        lorsqu’il est multiplié à grande échelle.
                         </p>
                     </div>
-                    <div>
-                        <img
+                        <Image
                             src="/images/technologie-verte.png"
-                            alt="L'empreinte numérique"
-                            className={styles.image}
+                            alt="Learn more icon"
+                            width={250}
+                            height={250}
                         />
-                    </div>
                 </div>
                 <Title name="L'empreinte numérique par dispositif" />
                 <div className={styles.cards}>
