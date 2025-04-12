@@ -4,8 +4,18 @@ import styles from './page.module.css';
 import Image from 'next/image';
 import Title from '../components/titles';
 import { FaRegThumbsUp } from 'react-icons/fa';
-import { IoIosPhonePortrait, IoIosTabletPortrait , IoIosCloudOutline, IoIosPlayCircle, IoIosLaptop  } from "react-icons/io";
-import { IoMailOutline, IoTvOutline, IoGameControllerOutline } from 'react-icons/io5';
+import {
+    IoIosPhonePortrait,
+    IoIosTabletPortrait,
+    IoIosCloudOutline,
+    IoIosPlayCircle,
+    IoIosLaptop,
+} from 'react-icons/io';
+import {
+    IoMailOutline,
+    IoTvOutline,
+    IoGameControllerOutline,
+} from 'react-icons/io5';
 import DispositifCard from '../components/learn-more/card';
 
 export const metadata: Metadata = {
@@ -19,54 +29,59 @@ export default async function Page() {
             <div className="container">
                 <Title name="L'empreinte numérique" />
                 <div className={styles.header}>
-                    <div className='header-description'>
+                    <div className="header-description">
                         <p>
-                        L’empreinte numérique désigne l’ensemble des 
-                        impacts environnementaux liés à l’utilisation 
-                        des technologies numériques. Elle est particulièrement 
-                        visible à travers l’empreinte carbone générée par nos 
-                        dispositifs électroniques : ordinateurs, téléphones, 
-                        tablettes, objets connectés, mais aussi les réseaux et 
-                        les centres de données qui les soutiennent. 
+                            L’empreinte numérique désigne l’ensemble des impacts
+                            environnementaux liés à l’utilisation des
+                            technologies numériques. Elle est particulièrement
+                            visible à travers l’empreinte carbone générée par
+                            nos dispositifs électroniques : ordinateurs,
+                            téléphones, tablettes, objets connectés, mais aussi
+                            les réseaux et les centres de données qui les
+                            soutiennent.
                         </p>
                         <p>
-                        Cet impact commence bien avant l’allumage de nos appareils. 
-                        La fabrication d’un simple smartphone ou d’un ordinateur 
-                        nécessite l’extraction de ressources naturelles, souvent 
-                        rares, ainsi que des processus industriels complexes et 
-                        énergivores. L’assemblage, le transport et la distribution 
-                        à travers le monde engendrent à eux seuls une quantité 
-                        importante d’émissions de gaz à effet de serre. À titre 
-                        d’exemple, la majorité de l’empreinte carbone d’un appareil 
-                        est déjà produite avant même sa première utilisation.
+                            Cet impact commence bien avant l’allumage de nos
+                            appareils. La fabrication d’un simple smartphone ou
+                            d’un ordinateur nécessite l’extraction de ressources
+                            naturelles, souvent rares, ainsi que des processus
+                            industriels complexes et énergivores. L’assemblage,
+                            le transport et la distribution à travers le monde
+                            engendrent à eux seuls une quantité importante
+                            d’émissions de gaz à effet de serre. À titre
+                            d’exemple, la majorité de l’empreinte carbone d’un
+                            appareil est déjà produite avant même sa première
+                            utilisation.
                         </p>
                         <p>
-                        L’utilisation quotidienne de ces équipements continue 
-                        d’alimenter cette empreinte. Chaque action numérique 
-                        (regarder une vidéo, envoyer un message, effectuer une 
-                        recherche, sauvegarder un fichier) repose sur un vaste 
-                        réseau d’infrastructures : antennes, câbles sous-marins, 
-                        serveurs, data centers… Tous ces systèmes consomment de 
-                        l’électricité en permanence, souvent issue de sources 
-                        fossiles, et participent donc aux émissions de CO₂. 
-                        Même un geste aussi simple que l’envoi d’un e-mail 
-                        peut représenter une dépense énergétique non négligeable 
-                        lorsqu’il est multiplié à grande échelle.
+                            L’utilisation quotidienne de ces équipements
+                            continue d’alimenter cette empreinte. Chaque action
+                            numérique (regarder une vidéo, envoyer un message,
+                            effectuer une recherche, sauvegarder un fichier)
+                            repose sur un vaste réseau d’infrastructures :
+                            antennes, câbles sous-marins, serveurs, data
+                            centers… Tous ces systèmes consomment de
+                            l’électricité en permanence, souvent issue de
+                            sources fossiles, et participent donc aux émissions
+                            de CO₂. Même un geste aussi simple que l’envoi d’un
+                            e-mail peut représenter une dépense énergétique non
+                            négligeable lorsqu’il est multiplié à grande
+                            échelle.
                         </p>
                     </div>
-                        <Image
+                    {/* <Image
                             src="/images/technologie-verte.png"
                             alt="Learn more icon"
                             width={250}
                             height={250}
-                        />
+                        /> */}
                 </div>
                 <Title name="L'empreinte numérique par dispositif" />
                 <div className={styles.cards}>
                     <DispositifCard
                         title="Ordinateur"
                         description="Sa fabrication nécessite des métaux rares et consomme beaucoup d’énergie, tandis que son utilisation et son recyclage posent des défis écologiques."
-                        icon={<IoIosLaptop  size={48} color="#191A23" />}
+                        icon={<IoIosLaptop size={48} color="#191A23" />}
                     />
                     <DispositifCard
                         title="Smartphone"
@@ -88,7 +103,12 @@ export default async function Page() {
                     <DispositifCard
                         title="Console de Jeux Vidéo"
                         description="Son impact environnemental vient de sa consommation électrique et de l’obsolescence rapide des modèles."
-                        icon={<IoGameControllerOutline  size={48} color="#191A23" />}
+                        icon={
+                            <IoGameControllerOutline
+                                size={48}
+                                color="#191A23"
+                            />
+                        }
                     />
                 </div>
                 <Title name="L'empreinte numérique des services web et cloud" />
