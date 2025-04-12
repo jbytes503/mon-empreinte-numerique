@@ -1,7 +1,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 
 import CarbonFootprint from '../components/result/result';
 import PosteDEmission from '../components/postedemission/poste';
@@ -9,7 +9,6 @@ import styles from './page.module.css';
 import Title from '../components/titles';
 import Button from '../components/home/button';
 
-// Mapping pour des noms plus lisibles
 const emissionNames: { [key: string]: string } = {
     smartphone: 'Smartphones',
     computer: 'Ordinateurs',
@@ -23,7 +22,7 @@ const emissionNames: { [key: string]: string } = {
     work: 'Communication Pro',
 };
 
-export default function Page() {
+function BilanPageContent() {
     const searchParams = useSearchParams();
     const [totalCO2, setTotalCO2] = useState<number>(0);
     const [randomTips, setRandomTips] = useState<
@@ -192,5 +191,13 @@ export default function Page() {
                 </div>
             </section>
         </>
+    );
+}
+
+export default function Page() {
+    return (
+        <Suspense fallback={<div>Chargement...</div>}>
+            <BilanPageContent />
+        </Suspense>
     );
 }
