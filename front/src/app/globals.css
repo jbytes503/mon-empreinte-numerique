@@ -7,17 +7,25 @@
     --color-3: #f8f0ec;
     --color-2: #f08262;
     --color-1: #e52713;
-}
 
-@media (prefers-color-scheme: light) {
-    :root {
-        --background: #0a0a0a;
-        --foreground: #ededed;
-    }
+    --default-font-size: 16px;
+
+    /* Dynamic font sizes for headers */
+    --h1-font-size: calc(var(--default-font-size) * 2.5); /* 40px by default */
+    --h2-font-size: calc(var(--default-font-size) * 2); /* 32px by default */
+    --h3-font-size: calc(var(--default-font-size) * 1.5); /* 24px by default */
+    --h4-font-size: calc(var(--default-font-size) * 1.25); /* 20px by default */
+    --h5-font-size: calc(
+        var(--default-font-size) * 1.125
+    ); /* 18px by default */
+    --h6-font-size: var(--default-font-size); /* 16px by default */
+
+    --paragraph-font-size: var(--default-font-size); /* 16px by default */
 }
 
 html,
 body {
+    font-size: var(--default-font-size);
     max-width: 100vw;
     margin-left: 50px;
     margin-right: 50px;
@@ -30,9 +38,53 @@ body {
     font-family: 'Space Grotesk';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 0 2.5em;
     min-height: 100svh;
+}
 
+/* Tablets */
+@media (max-width: 1050px) {
+    html,
+    body {
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    html,
+    body {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+h1 {
+    font-size: var(--h1-font-size);
+}
+
+h2 {
+    font-size: var(--h2-font-size);
+}
+
+h3 {
+    font-size: var(--h3-font-size);
+}
+
+h4 {
+    font-size: var(--h4-font-size);
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+}
+
+p {
+    font-size: var(--paragraph-font-size);
 }
 
 * {
@@ -44,12 +96,6 @@ body {
 a {
     color: inherit;
     text-decoration: none;
-}
-
-@media (prefers-color-scheme: light) {
-    html {
-        color-scheme: light;
-    }
 }
 
 @import 'tailwindcss';
