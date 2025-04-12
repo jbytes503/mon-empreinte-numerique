@@ -8,13 +8,13 @@ import {
     IoIosPhonePortrait,
     IoIosTabletPortrait,
     IoIosCloudOutline,
-    IoIosPlayCircle,
     IoIosLaptop,
 } from 'react-icons/io';
 import {
     IoMailOutline,
     IoTvOutline,
     IoGameControllerOutline,
+    IoPlayCircleOutline,
 } from 'react-icons/io5';
 import DispositifCard from '../components/learn-more/card';
 
@@ -133,7 +133,7 @@ export default async function Page() {
                     <DispositifCard
                         title="Service de streaming et divertissement"
                         description=" La lecture constante de vidéos et de musique en streaming consomme beaucoup d'énergie en raison du transfert important de données, ce qui augmente considérablement l'empreinte carbone."
-                        icon={<IoIosPlayCircle size={48} color="#191A23" />}
+                        icon={<IoPlayCircleOutline size={48} color="#191A23" />}
                     />
                 </div>
             </div>
