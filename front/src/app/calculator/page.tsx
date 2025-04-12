@@ -1120,12 +1120,6 @@ export default function Page() {
                                 0
                             );
 
-                        console.log(
-                            'Empreinte carbone totale (calculée avant redirection):',
-                            total.toFixed(2),
-                            'kg CO2e/an'
-                        );
-
                         return (
                             <Link href={`/bilan?${queryString}`} passHref>
                                 <button className={styles.calculateButton}>

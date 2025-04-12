@@ -1,7 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
 import styles from './page.module.css';
-import Image from 'next/image';
 import Title from '../components/titles';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import {
