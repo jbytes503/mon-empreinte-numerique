@@ -6,7 +6,7 @@
     box-shadow: var(--card-shadow);
     padding: 30px;
 
-    width: 360px;
+    width: 345px;
     min-height: 350px;
 }
 
@@ -24,4 +24,38 @@
 .cardDivider {
     margin: 16px 0;
     border: 0.5px solid var(--color-5);
+}
+
+/* Tablets (max-width: 1050px) */
+@media (max-width: 1050px) {
+    .card {
+        padding: 20px; /* Reduce padding */
+        width: 330px; /* Reduce card width */
+        min-height: 350px; /* Reduce card height */
+    }
+
+    .cardHeader h5 {
+        font-size: 18px; /* Reduce header font size */
+    }
+
+    .cardDivider {
+        margin: 12px 0; /* Adjust divider margin */
+    }
+}
+
+/* Phones (max-width: 768px) */
+@media (max-width: 768px) {
+    .card {
+        padding: 25px; /* Further reduce padding */
+        width: 280px; /* Further reduce card width */
+        min-height: 280px; /* Further reduce card height */
+    }
+
+    .cardHeader h5 {
+        font-size: 16px; /* Further reduce header font size */
+    }
+
+    .cardDivider {
+        margin: 8px 0; /* Further adjust divider margin */
+    }
 }

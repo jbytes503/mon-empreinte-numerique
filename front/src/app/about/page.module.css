@@ -7,7 +7,7 @@
     flex-direction: column;
     align-items: center;
     text-align: justify;
-    width: 70%;
+    max-width: 70%;
 }
 
 .authors {
@@ -17,4 +17,20 @@
     padding: 1em;
     justify-items: center;
     align-items: center;
+}
+
+/* Tablets */
+@media (max-width: 1050px) {
+    .intro {
+        justify-content: center;
+        max-width: 100%;
+    }
+
+    .authors {
+        padding: 0;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
 }

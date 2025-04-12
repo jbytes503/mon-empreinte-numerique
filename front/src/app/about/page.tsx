@@ -69,14 +69,14 @@ export default async function Page() {
                 <AuthorCard
                     name="José Southerland"
                     title="Étudiant ingénieur en informatique"
-                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    description="En double diplôme à l’INSA Lyon, avec experience en développement logiciel, bases de données et intelligence artificielle, avec un intérêt marqué pour l’innovation technologique."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/jsoutherlands/"
                 />
                 <AuthorCard
                     name="Santiago Forrero Gutiérrez"
-                    title="Étudiant ingénieur en informatique"
-                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    title="Étudiant-ingénieur en informatique (double diplôme INSA Lyon / Universidad de los Andes)"
+                    description="Passionné par le développement logiciel et l'analyse de données. Intéressé à concilier innovation technique et impact concret, à travers des projets pluridisciplinaires en équipe."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/santiago-forero-gutierrez/"
                 />

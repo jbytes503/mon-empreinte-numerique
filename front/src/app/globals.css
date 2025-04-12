@@ -15,6 +15,12 @@
     --h2-font-size: calc(var(--default-font-size) * 2); /* 32px by default */
     --h3-font-size: calc(var(--default-font-size) * 1.5); /* 24px by default */
     --h4-font-size: calc(var(--default-font-size) * 1.25); /* 20px by default */
+    --h5-font-size: calc(
+        var(--default-font-size) * 1.125
+    ); /* 18px by default */
+    --h6-font-size: var(--default-font-size); /* 16px by default */
+
+    --paragraph-font-size: var(--default-font-size); /* 16px by default */
 }
 
 html,
@@ -32,12 +38,10 @@ body {
     font-family: 'Space Grotesk';
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* padding: 0 2.5em; */
     min-height: 100svh;
 }
 
 /* Tablets */
-/* This media query is for devices with a maximum width of 768px */
 @media (max-width: 1050px) {
     html,
     body {
@@ -47,7 +51,6 @@ body {
 }
 
 /* Phones */
-/* This media query is for devices with a maximum width of 480px */
 @media (max-width: 480px) {
     html,
     body {
@@ -70,6 +73,18 @@ h3 {
 
 h4 {
     font-size: var(--h4-font-size);
+}
+
+h5 {
+    font-size: var(--h5-font-size);
+}
+
+h6 {
+    font-size: var(--h6-font-size);
+}
+
+p {
+    font-size: var(--paragraph-font-size);
 }
 
 * {
