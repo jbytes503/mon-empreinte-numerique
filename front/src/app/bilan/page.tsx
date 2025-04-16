@@ -141,6 +141,11 @@ function BilanPageContent() {
         setRandomTips(shuffleArray(allTips).slice(0, 3));
     }, [searchParams]);
 
+    // Calcul dynamique de l'échelle et du pourcentage
+    const calculatedMaxScale = Math.max(2500, totalCO2); // Échelle dynamique
+    const calculatedProgressPercentage =
+        calculatedMaxScale > 0 ? (totalCO2 * 100) / calculatedMaxScale : 0; // % basé sur l'échelle dynamique
+
     return (
         <>
             <Title name="Mon empreinte" />
@@ -148,8 +153,8 @@ function BilanPageContent() {
             <section className={`${styles.section}`}>
                 <CarbonFootprint
                     co2Amount={totalCO2}
-                    maxScale={2500}
-                    progressPercentage={(totalCO2 * 100) / 2500}
+                    maxScale={calculatedMaxScale} // Utiliser l'échelle calculée
+                    progressPercentage={calculatedProgressPercentage} // Utiliser le pourcentage calculé
                     tripComparison={Number((totalCO2 / 43.5).toFixed(0))}
                 />
             </section>
