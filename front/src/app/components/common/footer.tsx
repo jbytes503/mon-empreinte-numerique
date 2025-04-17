@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
             <div className={styles.footerDivider} />
 
-            <p>© 2023 Mon Empreinte Numérique. Tous droits réservés.</p>
+            <p>© 2025 Mon Empreinte Numérique. Tous droits réservés.</p>
         </footer>
     );
 };
