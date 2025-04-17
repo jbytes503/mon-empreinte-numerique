@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import styles from './page.module.css';
 import Button from './components/home/button';
+import Link from 'next/link';
 
 export default function Home() {
     return (
@@ -27,20 +28,24 @@ export default function Home() {
             </section>
             <section className={styles.container}>
                 <div className={styles.logos}>
-                    <Image
-                        aria-hidden
-                        src="/insa.svg"
-                        alt="INSA icon"
-                        width={200}
-                        height={200}
-                    />
-                    <Image
-                        aria-hidden
-                        src="/aprr.svg"
-                        alt="APRR icon"
-                        width={200}
-                        height={200}
-                    />
+                    <Link href={'https://www.insa-lyon.fr/'} target="_blank">
+                        <Image
+                            aria-hidden
+                            src="/insa.svg"
+                            alt="INSA icon"
+                            width={200}
+                            height={200}
+                        />
+                    </Link>
+                    <Link href={'https://voyage.aprr.fr/'} target="_blank">
+                        <Image
+                            aria-hidden
+                            src="/aprr.svg"
+                            alt="APRR icon"
+                            width={200}
+                            height={200}
+                        />
+                    </Link>
                 </div>
             </section>
             <section className={styles.facts}>
