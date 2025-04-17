@@ -5,15 +5,14 @@ import Link from 'next/link';
 import styles from './navbar.module.css';
 
 export default function Navbar() {
-    // Déclaration de l'état pour le bouton sélectionné avec le type 'string | null'
     const [selectedButton, setSelectedButton] = useState<string | null>(null);
+    const [menuOpen, setMenuOpen] = useState(false);
 
-    // Fonction pour gérer le clic sur un bouton
     const handleButtonClick = (buttonName: string | null) => {
         setSelectedButton(buttonName);
+        setMenuOpen(false); // Close menu on link click
     };
 
-    // Liste des éléments de navigation
     const navItems = [
         { name: "L'empreinte numérique", href: '/learn-more' },
         { name: 'À propos de nous', href: '/about' },
@@ -22,29 +21,37 @@ export default function Navbar() {
 
     return (
         <nav className={styles.navbar}>
-            {/* Logo avec réinitialisation de la sélection au clic */}
             <Link
                 href="/"
                 className={styles.logoText}
-                onClick={() => handleButtonClick(null)} // Réinitialiser la sélection lors du clic sur le logo
+                onClick={() => handleButtonClick(null)}
             >
                 Mon Empreinte Numérique
             </Link>
 
-            {/* Menu Desktop */}
+            <button
+                className={`${styles.hamburger} ${menuOpen ? styles.open : ''}`}
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+            >
+                <span className={styles.bar}></span>
+                <span className={styles.bar}></span>
+                <span className={styles.bar}></span>
+            </button>
 
-            <ul className={styles.menu}>
+            <ul className={`${styles.menu} ${menuOpen ? styles.menuOpen : ''}`}>
                 {navItems.map((item, index) => (
                     <li
                         key={index}
-                        className={`${styles.navItemText}
-                                        ${selectedButton === item.name ? styles.selectedButton : styles.hiddenButton}`} // Appliquer le style si le bouton est sélectionné
+                        className={`${styles.navItemText} ${
+                            selectedButton === item.name
+                                ? styles.selectedButton
+                                : styles.hiddenButton
+                        }`}
                     >
                         <Link
                             href={item.href}
-                            onClick={
-                                () => handleButtonClick(item.name) // Clic sur un bouton
-                            }
+                            onClick={() => handleButtonClick(item.name)}
                         >
                             {item.name}
                         </Link>
