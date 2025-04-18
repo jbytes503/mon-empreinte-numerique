@@ -152,10 +152,10 @@ function BilanPageContent() {
 
             <section className={`${styles.section}`}>
                 <CarbonFootprint
-                    co2Amount={totalCO2}
+                    co2Amount={Number(totalCO2.toFixed(0))}
                     maxScale={calculatedMaxScale} // Utiliser l'échelle calculée
                     progressPercentage={calculatedProgressPercentage} // Utiliser le pourcentage calculé
-                    tripComparison={Number((totalCO2 / 43.5).toFixed(0))}
+                    tripComparison={Number((totalCO2 / 47.5).toFixed(0))} // Lyon-Dijon
                 />
             </section>
             <Title name="Mes principaux postes d'émissions" />
@@ -192,7 +192,7 @@ function BilanPageContent() {
                     ))}
                 </ul>
                 <div>
-                    <Button label="Je re fais le test !" href="/calculator" />
+                    <Button label="Je re-fais le test !" href="/calculator" />
                 </div>
             </section>
         </>
