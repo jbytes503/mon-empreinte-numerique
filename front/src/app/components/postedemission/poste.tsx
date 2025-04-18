@@ -11,9 +11,7 @@ const PosteDEmission = ({ co2Amount, pos, nom }: PosteDEmissionProps) => {
                 <p className={styles.title}>
                     {pos}. {nom}
                 </p>
-                <p className={styles.amount}>
-                    {co2Amount.toFixed(2)} kg CO2e par an
-                </p>
+                <p className={styles.amount}>{co2Amount} kg CO2e par an</p>
             </div>
         </div>
     );

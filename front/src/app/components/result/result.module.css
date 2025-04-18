@@ -62,7 +62,6 @@
     font-size: 24px;
     color: #301934;
     line-height: 1.4;
-    padding-inline: 100px;
 }
 
 .smileys {
@@ -75,4 +74,11 @@
     background-color: #ccc;
     margin: 40px 0;
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    .carbon-footprint-container {
+        padding: 20px;
+        max-width: 90%;
+    }
 }

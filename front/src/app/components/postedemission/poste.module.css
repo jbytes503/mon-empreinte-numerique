@@ -8,19 +8,16 @@
     width: 70%;
     margin: 0 auto;
     padding: 20px 50px;
-    background: linear-gradient(
-        90deg, 
-        #F8F0EC 0%, 
-        #F08262 80%
-    );
+    background: linear-gradient(90deg, #f8f0ec 0%, #f08262 80%);
 }
 
 .content {
     display: flex;
     flex-direction: row;
-    justify-content: space-between; 
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    gap: 0; 
+    gap: 0;
 }
 
 .title {
@@ -34,4 +31,15 @@
     color: #000000;
     margin: 0;
     font-weight: bolder;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+        padding: 20px 30px;
+    }
+
+    .content {
+        align-items: center;
+    }
 }
