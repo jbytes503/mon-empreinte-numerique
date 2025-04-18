@@ -41,7 +41,7 @@ export default async function Page() {
                 <AuthorCard
                     name="Jassir Habba"
                     title="Étudiant ingénieur en informatique"
-                    description="Promouvoir un numérique responsable et réduire notre empreinte environnementale."
+                    description="Étudiant développeur passionné, avec une expertise en C, C++ et Java, créant des solutions logicielles robustes et explorant des concepts de programmation avancés."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/jassir-habba/"
                 />
@@ -55,14 +55,14 @@ export default async function Page() {
                 <AuthorCard
                     name="Hazim Asri"
                     title="Étudiant ingénieur en informatique"
-                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    description="Étudiant en avant-dernière année à l’INSA Lyon en informatique, passionné par le développement logiciel et l’intelligence artificielle."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/hazim-asri-307989221/"
                 />
                 <AuthorCard
                     name="Mateo Carvajal"
                     title="Étudiant ingénieur en informatique"
-                    description="Accompagner la transition écologique à travers des actions concrètes."
+                    description="Étudiant en double diplôme à l’INSA Lyon, avec une passion pour le développement logiciel et l’intelligence artificielle. Je suis motivé par l’impact positif de la technologie sur la société."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/mateo-carvajal-a02877248/"
                 />
@@ -75,7 +75,7 @@ export default async function Page() {
                 />
                 <AuthorCard
                     name="Santiago Forrero Gutiérrez"
-                    title="Étudiant-ingénieur en informatique (double diplôme INSA Lyon / Universidad de los Andes)"
+                    title="Étudiant ingénieur en informatique (double diplôme INSA Lyon / Universidad de los Andes)"
                     description="Passionné par le développement logiciel et l'analyse de données. Intéressé à concilier innovation technique et impact concret, à travers des projets pluridisciplinaires en équipe."
                     icon={<FaLinkedin size={32} color="#f08262" />}
                     url="https://www.linkedin.com/in/santiago-forero-gutierrez/"
