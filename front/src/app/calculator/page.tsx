@@ -883,7 +883,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="streaming-videoHours"
-                            label="Combien d'heures par jour passez-vous à regarder des vidéos ?"
+                            label="Combien d'heures par semaine passez-vous à regarder des vidéos ?"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.streaming as StreamingFormData)
@@ -906,7 +906,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="streaming-musicHours"
-                            label="Combien d'heures par jour passez-vous à écouter de la musique ?"
+                            label="Combien d'heures par semaine passez-vous à écouter de la musique ?"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.streaming as StreamingFormData)
@@ -929,7 +929,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="streaming-cloudGamingHours"
-                            label="Combien d'heures par jour passez-vous à jouer en ligne ?"
+                            label="Combien d'heures par semaine passez-vous à jouer en ligne ?"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.streaming as StreamingFormData)
