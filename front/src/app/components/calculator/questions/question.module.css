@@ -67,3 +67,11 @@
     color: var(--text-color);
     cursor: pointer;
 }
+
+/* Phones (max-width: 768px) */
+@media (max-width: 768px) {
+    .checkboxItem input[type='checkbox'] {
+        margin-right: 4px;
+        cursor: pointer;
+    }
+}
