@@ -47,6 +47,7 @@
 .checkboxItem input[type='checkbox'] {
     margin-right: 0.75rem;
     cursor: pointer;
+    width: auto;
 }
 
 .checkboxItem label {
