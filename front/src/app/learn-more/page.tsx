@@ -31,7 +31,7 @@ export default async function Page() {
                     <div className="header-description">
                         <p>
                             L’empreinte numérique désigne l’ensemble des impacts
-                            environnementaux liés à l’utilisation des
+                            environnementaux lié à l’utilisation des
                             technologies numériques. Elle est particulièrement
                             visible à travers l’empreinte carbone générée par
                             nos dispositifs électroniques : ordinateurs,
@@ -41,16 +41,15 @@ export default async function Page() {
                         </p>
                         <p>
                             Cet impact commence bien avant l’allumage de nos
-                            appareils. La fabrication d’un simple smartphone ou
-                            d’un ordinateur nécessite l’extraction de ressources
+                            appareils. La fabrication d’un smartphone ou d’un
+                            ordinateur nécessite l’extraction de ressources
                             naturelles, souvent rares, ainsi que des processus
                             industriels complexes et énergivores. L’assemblage,
                             le transport et la distribution à travers le monde
                             engendrent à eux seuls une quantité importante
-                            d’émissions de gaz à effet de serre. À titre
-                            d’exemple, la majorité de l’empreinte carbone d’un
-                            appareil est déjà produite avant même sa première
-                            utilisation.
+                            d’émissions de gaz à effet de serre. Ainsi, la
+                            majorité de l’empreinte carbone d’un appareil est
+                            déjà produite avant même sa première utilisation.
                         </p>
                         <p>
                             L’utilisation quotidienne de ces équipements
@@ -62,10 +61,10 @@ export default async function Page() {
                             centers… Tous ces systèmes consomment de
                             l’électricité en permanence, souvent issue de
                             sources fossiles, et participent donc aux émissions
-                            de CO₂. Même un geste aussi simple que l’envoi d’un
-                            e-mail peut représenter une dépense énergétique non
-                            négligeable lorsqu’il est multiplié à grande
-                            échelle.
+                            de CO₂. Tous nos gestes quotidiens en lien avec le
+                            numérique représentent une dépense énergétique non
+                            négligeable, d’autant plus qu’ils sont multipliés à
+                            grande échelle.
                         </p>
                     </div>
                     {/* <Image
@@ -78,7 +77,7 @@ export default async function Page() {
                 <Title name="L'empreinte numérique par dispositif" />
                 <div className={styles.cards}>
                     <DispositifCard
-                        title="Ordinateur"
+                        title="Ordinateur et écran"
                         description="Sa fabrication nécessite des métaux rares et consomme beaucoup d’énergie, tandis que son utilisation et son recyclage posent des défis écologiques."
                         icon={<IoIosLaptop size={48} color="#191A23" />}
                     />

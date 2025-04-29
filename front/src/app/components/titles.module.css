@@ -1,10 +1,10 @@
 .title {
-    background-color: #F08262; /* Color de fondo */
+    background-color: var(--color-2); /* Color de fondo */
     color: #301934; /* Color del texto */
     font-weight: bold; /* Negrita */
     font-size: 2em; /* Tamaño del texto */
     padding: 6px 12px; /* Espaciado interno */
-	margin: 10px 0px;
+    margin: 10px 0px;
     border-radius: 7px; /* Esquinas redondeadas */
     display: inline-block; /* Ajusta el tamaño al contenido */
 }
