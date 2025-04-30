@@ -57,16 +57,15 @@ const QuestionCard = ({
     return (
         <div className={cardClassName}>
             <div className={styles.header} onClick={toggleCard}>
-                <div className={styles.titleContainer}>
-                    <span className={styles.number}>{number}</span>
-                    <h2 className={styles.title}>{title}</h2>
-                    {filled && !expanded && (
-                        <div className={styles.filledIndicator}>
-                            <FiCheck size={18} />
-                            <span>Complété</span>
-                        </div>
-                    )}
-                </div>
+                <span className={styles.number}>{number}</span>
+                <h2 className={styles.title}>{title}</h2>
+                {filled && !expanded && (
+                    <div className={styles.filledIndicator}>
+                        <FiCheck size={18} />
+                        <span>Complété</span>
+                    </div>
+                )}
+
                 <button
                     className={styles.toggleButton}
                     type="button"
