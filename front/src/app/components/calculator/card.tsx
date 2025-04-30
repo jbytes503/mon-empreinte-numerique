@@ -59,12 +59,6 @@ const QuestionCard = ({
             <div className={styles.header} onClick={toggleCard}>
                 <span className={styles.number}>{number}</span>
                 <h2 className={styles.title}>{title}</h2>
-                {filled && !expanded && (
-                    <div className={styles.filledIndicator}>
-                        <FiCheck size={18} />
-                        <span>Complété</span>
-                    </div>
-                )}
 
                 <button
                     className={styles.toggleButton}
@@ -74,7 +68,12 @@ const QuestionCard = ({
                     {expanded ? <FiMinus size={20} /> : <FiPlus size={20} />}
                 </button>
             </div>
-
+            {filled && !expanded && (
+                <div className={styles.filledIndicator}>
+                    <FiCheck size={18} />
+                    <span>Complété</span>
+                </div>
+            )}
             {expanded && (
                 <div className={styles.content}>
                     <p className={styles.description}>{description}</p>
