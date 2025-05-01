@@ -520,7 +520,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="smartphone-changeRate"
-                            label="Combien d'années gardez-vous votre smartphone avant de le changer ?"
+                            label="Combien d'années en moyenne gardez-vous votre smartphone avant de le changer ?"
                             min={0}
                             placeholder="Ex: 2"
                             value={
@@ -589,7 +589,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="computer-changeRate"
-                            label="Combien d'années gardez-vous votre ordinateur avant de le changer ?"
+                            label="Combien d'années en moyenne gardez-vous votre ordinateur avant de le changer ?"
                             min={0}
                             placeholder="Ex: 3"
                             value={
@@ -643,7 +643,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="tablet-changeRate"
-                            label="Combien d'années gardez-vous votre tablette avant de la changer ?"
+                            label="Combien d'années en moyenne gardez-vous votre tablette avant de la changer ?"
                             min={0}
                             placeholder="Ex: 3"
                             value={
@@ -687,7 +687,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="tv-changeRate"
-                            label="Combien d'années gardez-vous votre télévision avant de la changer ?"
+                            label="Combien d'années en moyenne gardez-vous votre télévision avant de la changer ?"
                             min={0}
                             placeholder="Ex: 5"
                             value={(formData.tv as DeviceFormData).changeRate}
@@ -730,7 +730,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="console-changeRate"
-                            label="Combien d'années gardez-vous votre console de jeux avant de la changer ?"
+                            label="Combien d'années en moyenne gardez-vous votre console de jeux avant de la changer ?"
                             min={0}
                             placeholder="Ex: 5"
                             value={
@@ -1007,7 +1007,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="cloud-storageSize"
-                            label="Combien de stockage cloud utilisez-vous ?"
+                            label="Combien de stockage cloud utilisez-vous ? (en Go)"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.cloud as CloudFormData).storageSize
