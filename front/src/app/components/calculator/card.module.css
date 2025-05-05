@@ -28,6 +28,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    flex-wrap: wrap;
 }
 
 .titleContainer {
@@ -41,6 +42,7 @@
     font-size: 60px;
     font-weight: medium;
     color: #2d1832; /* Violet foncé */
+    min-width: 0;
 }
 
 .title {
@@ -48,6 +50,7 @@
     font-weight: medium;
     margin: 0;
     color: #2d1832; /* Violet foncé */
+    max-width: 100%;
 }
 
 .filledIndicator {
@@ -60,6 +63,7 @@
     padding: 4px 10px;
     border-radius: 12px;
     margin-left: 8px;
+    width: fit-content;
 }
 
 .filledIndicator svg {
@@ -146,22 +150,25 @@
 @media (max-width: 878px) {
     .header {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         grid-template-rows: auto auto;
+        grid-template-areas:
+            'number toggleButton'
+            'title title';
+
         column-gap: 12px;
         row-gap: 8px;
         align-items: center;
     }
 
     .toggleButton {
-        grid-column: 2;
-        grid-row: 1;
+        grid-area: toggleButton;
         justify-self: end;
     }
-
-    .filledIndicator {
-        grid-column: 1 / span 2;
-        grid-row: 3;
-        justify-self: start;
+    .number {
+        grid-area: number;
+    }
+    .title {
+        grid-area: title;
     }
 }
