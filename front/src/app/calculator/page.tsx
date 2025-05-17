@@ -531,7 +531,7 @@ export default function Page() {
                             id="smartphone-count"
                             label="Combien de smartphones possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={
                                 (formData.smartphone as DeviceFormData).count
                             }
@@ -560,7 +560,7 @@ export default function Page() {
                                     id="smartphone-changeRate"
                                     label="Combien d'années en moyenne gardez-vous votre smartphone avant de le changer ?"
                                     min={0}
-                                    placeholder="Ex: 2"
+                                    placeholder="Exemple: 2"
                                     value={
                                         (formData.smartphone as DeviceFormData)
                                             .changeRate
@@ -571,7 +571,7 @@ export default function Page() {
                                     id="smartphone-unused"
                                     label="Combien de smartphones conservez-vous alors que vous ne les utilisez plus ? (oui, celui au fond du tiroir depuis 2015 compte aussi 👀)"
                                     min={0}
-                                    placeholder="Nombre"
+                                    placeholder="Exemple: 1"
                                     value={
                                         (formData.smartphone as DeviceFormData)
                                             .unused || ''
@@ -606,7 +606,7 @@ export default function Page() {
                             id="computer-count"
                             label="Combien d'ordinateurs utilisez-vous ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.computer as DeviceFormData).count}
                             onChange={handleInputChange('computer')}
                         />
@@ -646,7 +646,7 @@ export default function Page() {
                                     id="computer-changeRate"
                                     label="Combien d'années en moyenne gardez-vous votre ordinateur avant de le changer ?"
                                     min={0}
-                                    placeholder="Ex: 3"
+                                    placeholder="Exemple: 3"
                                     value={
                                         (formData.computer as DeviceFormData)
                                             .changeRate
@@ -657,7 +657,7 @@ export default function Page() {
                                     id="computer-unused"
                                     label="Combien d'ordinateurs conservez-vous alors que vous ne les utilisez plus ?"
                                     min={0}
-                                    placeholder="Nombre"
+                                    placeholder="Exemple: 0"
                                     value={
                                         (formData.computer as DeviceFormData)
                                             .unused || ''
@@ -692,7 +692,7 @@ export default function Page() {
                             id="tablet-count"
                             label="Combien de tablettes possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.tablet as DeviceFormData).count}
                             onChange={handleInputChange('tablet')}
                         />
@@ -719,7 +719,7 @@ export default function Page() {
                                     id="tablet-changeRate"
                                     label="Combien d'années en moyenne gardez-vous votre tablette avant de la changer ?"
                                     min={0}
-                                    placeholder="Ex: 3"
+                                    placeholder="Exemple: 3"
                                     value={
                                         (formData.tablet as DeviceFormData)
                                             .changeRate
@@ -730,7 +730,7 @@ export default function Page() {
                                     id="tablet-unused"
                                     label="Combien de tablettes conservez-vous alors que vous ne les utilisez plus ?"
                                     min={0}
-                                    placeholder="Nombre"
+                                    placeholder="Exemple: 0"
                                     value={
                                         (formData.tablet as DeviceFormData)
                                             .unused || ''
@@ -765,7 +765,7 @@ export default function Page() {
                             id="tv-count"
                             label="Combien de télévisions possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.tv as DeviceFormData).count}
                             onChange={handleInputChange('tv')}
                         />
@@ -779,7 +779,7 @@ export default function Page() {
                                     id="tv-changeRate"
                                     label="Combien d'années en moyenne gardez-vous votre télévision avant de la changer ?"
                                     min={0}
-                                    placeholder="Ex: 5"
+                                    placeholder="Exemple: 5"
                                     value={
                                         (formData.tv as DeviceFormData)
                                             .changeRate
@@ -791,7 +791,7 @@ export default function Page() {
                                     label="Combien d'heures par jour utilisez-vous votre télévision ?"
                                     min={0}
                                     max={24}
-                                    placeholder="Ex: 3"
+                                    placeholder="Exemple: 2"
                                     value={
                                         (formData.tv as DeviceFormData)
                                             .dailyHours || ''
@@ -826,7 +826,7 @@ export default function Page() {
                             id="console-count"
                             label="Combien de consoles de jeux possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.console as DeviceFormData).count}
                             onChange={handleInputChange('console')}
                         />
@@ -840,7 +840,7 @@ export default function Page() {
                                     id="console-changeRate"
                                     label="Combien d'années en moyenne gardez-vous votre console de jeux avant de la changer ?"
                                     min={0}
-                                    placeholder="Ex: 5"
+                                    placeholder="Exemple: 5"
                                     value={
                                         (formData.console as DeviceFormData)
                                             .changeRate
@@ -852,7 +852,7 @@ export default function Page() {
                                     label="Combien d'heures par semaine utilisez-vous votre console de jeux ?"
                                     min={0}
                                     max={168}
-                                    placeholder="Ex: 10"
+                                    placeholder="Exemple: 7"
                                     value={
                                         (formData.console as DeviceFormData)
                                             .weeklyHours || ''
