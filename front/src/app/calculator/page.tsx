@@ -485,7 +485,7 @@ export default function Page() {
                         number="01"
                         title="Smartphones"
                         description="Évaluez l'impact environnemental de votre appareil, de sa fabrication à son utilisation quotidienne."
-                        isOpen={true}
+                        isOpen={false}
                         isFilled={smartphoneResult > 0}
                         onSave={() =>
                             handleSave(
