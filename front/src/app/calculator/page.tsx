@@ -563,7 +563,7 @@ export default function Page() {
                         />
                         <NumericInput
                             id="smartphone-unused"
-                            label="Combien de smartphones conservez-vous alors que vous ne les utilisez plus ?"
+                            label="Combien de smartphones conservez-vous alors que vous ne les utilisez plus ? (oui, celui au fond du tiroir depuis 2015 compte aussi 👀)"
                             min={0}
                             placeholder="Nombre"
                             value={
@@ -915,7 +915,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="streaming-videoHours"
-                            label="Combien d'heures par semaine passez-vous à regarder des vidéos ?"
+                            label="Combien d'heures par semaine passez-vous à regarder des vidéos ? (soyez honnête, Netflix sait déjà tout )"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.streaming as StreamingFormData)
@@ -996,7 +996,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="ai-llmRequests"
-                            label="Combien de requêtes par jour faites-vous à vos services d'intelligence artificielle ?"
+                            label="Combien de requêtes par jour faites-vous à vos services d'intelligence artificielle ? (non, demander la météo à Siri ne compte pas)"
                             options={messagesPerDayOptions}
                             value={(formData.ai as AIFormData).llmRequests}
                             onChange={handleInputChange('ai')}
@@ -1025,7 +1025,7 @@ export default function Page() {
                         }
                     >
                         <CheckboxGroup
-                            label="Quels services de stockage cloud utilisez-vous ?"
+                            label="Quels services de stockage cloud utilisez-vous ? (où sont stockées toutes ces photos de vacances que personne ne regarde jamais)"
                             name="cloud-storageServices"
                             options={cloudStorageOptions}
                             selectedValues={
