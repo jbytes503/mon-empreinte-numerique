@@ -479,6 +479,38 @@ export default function Page() {
     return (
         <main className={styles.main}>
             <Title name="Calculer mon empreinte" />
+
+            {/* Texte d'explication avec styles existants */}
+            <div className={styles.intro}>
+                <p>
+                    <strong>Comment ça fonctionne ?</strong> 🌱
+                </p>
+                <p>
+                    Suivez ces étapes simples pour calculer votre empreinte
+                    numérique :
+                </p>
+                <ul>
+                    <li>Cliquez sur chaque catégorie pour la déplier</li>
+                    <li>
+                        Renseignez vos informations d'usage (tous les champs
+                        sont optionnels)
+                    </li>
+                    <li>
+                        Cliquez sur "Enregistrer" pour chaque section complétée
+                    </li>
+                    <li>
+                        Une fois prêt, cliquez sur "Calculer" en bas pour voir
+                        votre bilan
+                    </li>
+                </ul>
+                <p>
+                    <em>
+                        Plus vous remplissez d'informations, plus votre résultat
+                        sera précis !
+                    </em>
+                </p>
+            </div>
+
             <div className={styles.container}>
                 <div className={styles.cardContainer}>
                     <QuestionCard

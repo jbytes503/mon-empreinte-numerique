@@ -5,6 +5,24 @@
     text-align: center;
 }
 
+/* Ajout de styles pour la liste */
+.intro ul {
+    display: inline-block; /* Pour l'aligner au centre tout en gardant l'alignement du texte à gauche */
+    text-align: left; /* Aligner le texte à gauche dans la liste */
+    margin: 1rem 0;
+    padding-left: 2rem; /* Espace pour les puces */
+    list-style-type: disc; /* Type de puce explicite */
+}
+
+.intro li {
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+}
+
+.intro p {
+    margin-bottom: 0.5rem;
+}
+
 .authors {
     display: flex;
     flex-wrap: wrap;
