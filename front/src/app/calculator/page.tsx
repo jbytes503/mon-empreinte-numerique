@@ -479,13 +479,45 @@ export default function Page() {
     return (
         <main className={styles.main}>
             <Title name="Calculer mon empreinte" />
+
+            {/* Texte d'explication avec styles existants */}
+            <div className={styles.intro}>
+                <p>
+                    <strong>Comment ça fonctionne ?</strong> 🌱
+                </p>
+                <p>
+                    Suivez ces étapes simples pour calculer votre empreinte
+                    numérique :
+                </p>
+                <ul>
+                    <li>Cliquez sur chaque catégorie pour la déplier</li>
+                    <li>
+                        Renseignez vos informations d'usage (tous les champs
+                        sont optionnels)
+                    </li>
+                    <li>
+                        Cliquez sur "Enregistrer" pour chaque section complétée
+                    </li>
+                    <li>
+                        Une fois prêt, cliquez sur "Calculer" en bas pour voir
+                        votre bilan
+                    </li>
+                </ul>
+                <p>
+                    <em>
+                        Plus vous remplissez d'informations, plus votre résultat
+                        sera précis !
+                    </em>
+                </p>
+            </div>
+
             <div className={styles.container}>
                 <div className={styles.cardContainer}>
                     <QuestionCard
                         number="01"
                         title="Smartphones"
                         description="Évaluez l'impact environnemental de votre appareil, de sa fabrication à son utilisation quotidienne."
-                        isOpen={true}
+                        isOpen={false}
                         isFilled={smartphoneResult > 0}
                         onSave={() =>
                             handleSave(
@@ -499,47 +531,61 @@ export default function Page() {
                             id="smartphone-count"
                             label="Combien de smartphones possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={
                                 (formData.smartphone as DeviceFormData).count
                             }
                             onChange={handleInputChange('smartphone')}
                         />
-                        <CheckboxGroup
-                            label="Quelles sont les marques de smartphone que vous utilisez?"
-                            name="smartphone-brand"
-                            options={smartphoneBrandOptions}
-                            selectedValues={
-                                (formData.smartphone as DeviceFormData)
-                                    .brands || []
-                            }
-                            onChange={handleCheckboxChange(
-                                'smartphone',
-                                'brands'
-                            )}
-                        />
-                        <NumericInput
-                            id="smartphone-changeRate"
-                            label="Combien d'années en moyenne gardez-vous votre smartphone avant de le changer ?"
-                            min={0}
-                            placeholder="Ex: 2"
-                            value={
-                                (formData.smartphone as DeviceFormData)
-                                    .changeRate
-                            }
-                            onChange={handleInputChange('smartphone')}
-                        />
-                        <NumericInput
-                            id="smartphone-unused"
-                            label="Combien de smartphones conservez-vous alors que vous ne les utilisez plus ?"
-                            min={0}
-                            placeholder="Nombre"
-                            value={
-                                (formData.smartphone as DeviceFormData)
-                                    .unused || ''
-                            }
-                            onChange={handleInputChange('smartphone')}
-                        />
+
+                        {/* Questions conditionnelles - désactivées si count est 0 */}
+                        {parseInt(
+                            (formData.smartphone as DeviceFormData).count || '0'
+                        ) > 0 ? (
+                            <>
+                                <CheckboxGroup
+                                    label="Quelles sont les marques de smartphone que vous utilisez?"
+                                    name="smartphone-brand"
+                                    options={smartphoneBrandOptions}
+                                    selectedValues={
+                                        (formData.smartphone as DeviceFormData)
+                                            .brands || []
+                                    }
+                                    onChange={handleCheckboxChange(
+                                        'smartphone',
+                                        'brands'
+                                    )}
+                                />
+                                <NumericInput
+                                    id="smartphone-changeRate"
+                                    label="Combien d'années en moyenne gardez-vous votre smartphone avant de le changer ?"
+                                    min={0}
+                                    placeholder="Exemple: 2"
+                                    value={
+                                        (formData.smartphone as DeviceFormData)
+                                            .changeRate
+                                    }
+                                    onChange={handleInputChange('smartphone')}
+                                />
+                                <NumericInput
+                                    id="smartphone-unused"
+                                    label="Combien de smartphones conservez-vous alors que vous ne les utilisez plus ? (oui, celui au fond du tiroir depuis 2015 compte aussi 👀)"
+                                    min={0}
+                                    placeholder="Exemple: 1"
+                                    value={
+                                        (formData.smartphone as DeviceFormData)
+                                            .unused || ''
+                                    }
+                                    onChange={handleInputChange('smartphone')}
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.inactiveMessage}>
+                                Veuillez indiquer un nombre de smartphones
+                                supérieur à 0 pour voir les questions
+                                supplémentaires.
+                            </p>
+                        )}
                     </QuestionCard>
 
                     <QuestionCard
@@ -560,54 +606,72 @@ export default function Page() {
                             id="computer-count"
                             label="Combien d'ordinateurs utilisez-vous ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.computer as DeviceFormData).count}
                             onChange={handleInputChange('computer')}
                         />
-                        <CheckboxGroup
-                            label="Quel type d'ordinateur utilisez-vous ?"
-                            name="computer-type"
-                            options={computerTypeOptions}
-                            selectedValues={
-                                (formData.computer as DeviceFormData).types ||
-                                []
-                            }
-                            onChange={handleCheckboxChange('computer', 'types')}
-                        />
-                        <CheckboxGroup
-                            label="Quelles sont les marques d'ordinateurs que vous utilisez ?"
-                            name="computer-brand"
-                            options={computerBrandOptions}
-                            selectedValues={
-                                (formData.computer as DeviceFormData).brands ||
-                                []
-                            }
-                            onChange={handleCheckboxChange(
-                                'computer',
-                                'brands'
-                            )}
-                        />
-                        <NumericInput
-                            id="computer-changeRate"
-                            label="Combien d'années en moyenne gardez-vous votre ordinateur avant de le changer ?"
-                            min={0}
-                            placeholder="Ex: 3"
-                            value={
-                                (formData.computer as DeviceFormData).changeRate
-                            }
-                            onChange={handleInputChange('computer')}
-                        />
-                        <NumericInput
-                            id="computer-unused"
-                            label="Combien d'ordinateurs conservez-vous alors que vous ne les utilisez plus ?"
-                            min={0}
-                            placeholder="Nombre"
-                            value={
-                                (formData.computer as DeviceFormData).unused ||
-                                ''
-                            }
-                            onChange={handleInputChange('computer')}
-                        />
+
+                        {/* Questions conditionnelles - désactivées si count est 0 */}
+                        {parseInt(
+                            (formData.computer as DeviceFormData).count || '0'
+                        ) > 0 ? (
+                            <>
+                                <CheckboxGroup
+                                    label="Quel type d'ordinateur utilisez-vous ?"
+                                    name="computer-type"
+                                    options={computerTypeOptions}
+                                    selectedValues={
+                                        (formData.computer as DeviceFormData)
+                                            .types || []
+                                    }
+                                    onChange={handleCheckboxChange(
+                                        'computer',
+                                        'types'
+                                    )}
+                                />
+                                <CheckboxGroup
+                                    label="Quelles sont les marques d'ordinateurs que vous utilisez ?"
+                                    name="computer-brand"
+                                    options={computerBrandOptions}
+                                    selectedValues={
+                                        (formData.computer as DeviceFormData)
+                                            .brands || []
+                                    }
+                                    onChange={handleCheckboxChange(
+                                        'computer',
+                                        'brands'
+                                    )}
+                                />
+                                <NumericInput
+                                    id="computer-changeRate"
+                                    label="Combien d'années en moyenne gardez-vous votre ordinateur avant de le changer ?"
+                                    min={0}
+                                    placeholder="Exemple: 3"
+                                    value={
+                                        (formData.computer as DeviceFormData)
+                                            .changeRate
+                                    }
+                                    onChange={handleInputChange('computer')}
+                                />
+                                <NumericInput
+                                    id="computer-unused"
+                                    label="Combien d'ordinateurs conservez-vous alors que vous ne les utilisez plus ?"
+                                    min={0}
+                                    placeholder="Exemple: 0"
+                                    value={
+                                        (formData.computer as DeviceFormData)
+                                            .unused || ''
+                                    }
+                                    onChange={handleInputChange('computer')}
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.inactiveMessage}>
+                                Veuillez indiquer un nombre d'ordinateurs
+                                supérieur à 0 pour voir les questions
+                                supplémentaires.
+                            </p>
+                        )}
                     </QuestionCard>
 
                     <QuestionCard
@@ -628,39 +692,59 @@ export default function Page() {
                             id="tablet-count"
                             label="Combien de tablettes possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.tablet as DeviceFormData).count}
                             onChange={handleInputChange('tablet')}
                         />
-                        <CheckboxGroup
-                            label="Quelles sont les marques de tablettes que vous utilisez ?"
-                            name="tablet-brand"
-                            options={tabletBrandOptions}
-                            selectedValues={
-                                (formData.tablet as DeviceFormData).brands || []
-                            }
-                            onChange={handleCheckboxChange('tablet', 'brands')}
-                        />
-                        <NumericInput
-                            id="tablet-changeRate"
-                            label="Combien d'années en moyenne gardez-vous votre tablette avant de la changer ?"
-                            min={0}
-                            placeholder="Ex: 3"
-                            value={
-                                (formData.tablet as DeviceFormData).changeRate
-                            }
-                            onChange={handleInputChange('tablet')}
-                        />
-                        <NumericInput
-                            id="tablet-unused"
-                            label="Combien de tablettes conservez-vous alors que vous ne les utilisez plus ?"
-                            min={0}
-                            placeholder="Nombre"
-                            value={
-                                (formData.tablet as DeviceFormData).unused || ''
-                            }
-                            onChange={handleInputChange('tablet')}
-                        />
+
+                        {/* Questions conditionnelles - désactivées si count est 0 */}
+                        {parseInt(
+                            (formData.tablet as DeviceFormData).count || '0'
+                        ) > 0 ? (
+                            <>
+                                <CheckboxGroup
+                                    label="Quelles sont les marques de tablettes que vous utilisez ?"
+                                    name="tablet-brand"
+                                    options={tabletBrandOptions}
+                                    selectedValues={
+                                        (formData.tablet as DeviceFormData)
+                                            .brands || []
+                                    }
+                                    onChange={handleCheckboxChange(
+                                        'tablet',
+                                        'brands'
+                                    )}
+                                />
+                                <NumericInput
+                                    id="tablet-changeRate"
+                                    label="Combien d'années en moyenne gardez-vous votre tablette avant de la changer ?"
+                                    min={0}
+                                    placeholder="Exemple: 3"
+                                    value={
+                                        (formData.tablet as DeviceFormData)
+                                            .changeRate
+                                    }
+                                    onChange={handleInputChange('tablet')}
+                                />
+                                <NumericInput
+                                    id="tablet-unused"
+                                    label="Combien de tablettes conservez-vous alors que vous ne les utilisez plus ?"
+                                    min={0}
+                                    placeholder="Exemple: 0"
+                                    value={
+                                        (formData.tablet as DeviceFormData)
+                                            .unused || ''
+                                    }
+                                    onChange={handleInputChange('tablet')}
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.inactiveMessage}>
+                                Veuillez indiquer un nombre de tablettes
+                                supérieur à 0 pour voir les questions
+                                supplémentaires.
+                            </p>
+                        )}
                     </QuestionCard>
 
                     <QuestionCard
@@ -681,29 +765,47 @@ export default function Page() {
                             id="tv-count"
                             label="Combien de télévisions possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.tv as DeviceFormData).count}
                             onChange={handleInputChange('tv')}
                         />
-                        <NumericInput
-                            id="tv-changeRate"
-                            label="Combien d'années en moyenne gardez-vous votre télévision avant de la changer ?"
-                            min={0}
-                            placeholder="Ex: 5"
-                            value={(formData.tv as DeviceFormData).changeRate}
-                            onChange={handleInputChange('tv')}
-                        />
-                        <NumericInput
-                            id="tv-dailyHours"
-                            label="Combien d'heures par jour utilisez-vous votre télévision ?"
-                            min={0}
-                            max={24}
-                            placeholder="Ex: 3"
-                            value={
-                                (formData.tv as DeviceFormData).dailyHours || ''
-                            }
-                            onChange={handleInputChange('tv')}
-                        />
+
+                        {/* Questions conditionnelles - désactivées si count est 0 */}
+                        {parseInt(
+                            (formData.tv as DeviceFormData).count || '0'
+                        ) > 0 ? (
+                            <>
+                                <NumericInput
+                                    id="tv-changeRate"
+                                    label="Combien d'années en moyenne gardez-vous votre télévision avant de la changer ?"
+                                    min={0}
+                                    placeholder="Exemple: 5"
+                                    value={
+                                        (formData.tv as DeviceFormData)
+                                            .changeRate
+                                    }
+                                    onChange={handleInputChange('tv')}
+                                />
+                                <NumericInput
+                                    id="tv-dailyHours"
+                                    label="Combien d'heures par jour utilisez-vous votre télévision ?"
+                                    min={0}
+                                    max={24}
+                                    placeholder="Exemple: 2"
+                                    value={
+                                        (formData.tv as DeviceFormData)
+                                            .dailyHours || ''
+                                    }
+                                    onChange={handleInputChange('tv')}
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.inactiveMessage}>
+                                Veuillez indiquer un nombre de télévisions
+                                supérieur à 0 pour voir les questions
+                                supplémentaires.
+                            </p>
+                        )}
                     </QuestionCard>
 
                     <QuestionCard
@@ -724,32 +826,47 @@ export default function Page() {
                             id="console-count"
                             label="Combien de consoles de jeux possédez-vous actuellement ?"
                             min={0}
-                            placeholder="Nombre"
+                            placeholder="Exemple: 1"
                             value={(formData.console as DeviceFormData).count}
                             onChange={handleInputChange('console')}
                         />
-                        <NumericInput
-                            id="console-changeRate"
-                            label="Combien d'années en moyenne gardez-vous votre console de jeux avant de la changer ?"
-                            min={0}
-                            placeholder="Ex: 5"
-                            value={
-                                (formData.console as DeviceFormData).changeRate
-                            }
-                            onChange={handleInputChange('console')}
-                        />
-                        <NumericInput
-                            id="console-weeklyHours"
-                            label="Combien d'heures par semaine utilisez-vous votre console de jeux ?"
-                            min={0}
-                            max={168}
-                            placeholder="Ex: 10"
-                            value={
-                                (formData.console as DeviceFormData)
-                                    .weeklyHours || ''
-                            }
-                            onChange={handleInputChange('console')}
-                        />
+
+                        {/* Questions conditionnelles - désactivées si count est 0 */}
+                        {parseInt(
+                            (formData.console as DeviceFormData).count || '0'
+                        ) > 0 ? (
+                            <>
+                                <NumericInput
+                                    id="console-changeRate"
+                                    label="Combien d'années en moyenne gardez-vous votre console de jeux avant de la changer ?"
+                                    min={0}
+                                    placeholder="Exemple: 5"
+                                    value={
+                                        (formData.console as DeviceFormData)
+                                            .changeRate
+                                    }
+                                    onChange={handleInputChange('console')}
+                                />
+                                <NumericInput
+                                    id="console-weeklyHours"
+                                    label="Combien d'heures par semaine utilisez-vous votre console de jeux ?"
+                                    min={0}
+                                    max={168}
+                                    placeholder="Exemple: 7"
+                                    value={
+                                        (formData.console as DeviceFormData)
+                                            .weeklyHours || ''
+                                    }
+                                    onChange={handleInputChange('console')}
+                                />
+                            </>
+                        ) : (
+                            <p className={styles.inactiveMessage}>
+                                Veuillez indiquer un nombre de consoles
+                                supérieur à 0 pour voir les questions
+                                supplémentaires.
+                            </p>
+                        )}
                     </QuestionCard>
 
                     <QuestionCard
@@ -883,7 +1000,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="streaming-videoHours"
-                            label="Combien d'heures par semaine passez-vous à regarder des vidéos ?"
+                            label="Combien d'heures par semaine passez-vous à regarder des vidéos ? (soyez honnête, Netflix sait déjà tout )"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.streaming as StreamingFormData)
@@ -964,7 +1081,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="ai-llmRequests"
-                            label="Combien de requêtes par jour faites-vous à vos services d'intelligence artificielle ?"
+                            label="Combien de requêtes par jour faites-vous à vos services d'intelligence artificielle ? (non, demander la météo à Siri ne compte pas)"
                             options={messagesPerDayOptions}
                             value={(formData.ai as AIFormData).llmRequests}
                             onChange={handleInputChange('ai')}
@@ -993,7 +1110,7 @@ export default function Page() {
                         }
                     >
                         <CheckboxGroup
-                            label="Quels services de stockage cloud utilisez-vous ?"
+                            label="Quels services de stockage cloud utilisez-vous ? (où sont stockées toutes ces photos de vacances que personne ne regarde jamais)"
                             name="cloud-storageServices"
                             options={cloudStorageOptions}
                             selectedValues={
