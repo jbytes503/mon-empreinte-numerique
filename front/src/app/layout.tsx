@@ -43,7 +43,7 @@ export default function RootLayout({
         <html lang="en">
             <body className={`${spaceGrotesk.variable}`}>
                 <Navbar />
-                {children}
+                <div className="container">{children}</div>
                 <Footer />
                 <Analytics />
             </body>
