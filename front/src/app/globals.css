@@ -30,6 +30,8 @@ body {
     margin-left: 50px;
     margin-right: 50px;
     scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -96,6 +98,10 @@ p {
 a {
     color: inherit;
     text-decoration: none;
+}
+.container {
+    flex-grow: 1;
+    margin: auto;
 }
 
 @import 'tailwindcss';
