@@ -142,7 +142,7 @@ function BilanPageContent() {
     }, [searchParams]);
 
     // Calcul dynamique de l'échelle et du pourcentage
-    const calculatedMaxScale = Math.max(2500, totalCO2); // Échelle dynamique
+    const calculatedMaxScale = Math.max(2000, totalCO2); // Échelle dynamique
     const calculatedProgressPercentage =
         calculatedMaxScale > 0 ? (totalCO2 * 100) / calculatedMaxScale : 0; // % basé sur l'échelle dynamique
 
