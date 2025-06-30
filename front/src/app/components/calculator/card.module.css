@@ -15,12 +15,12 @@
 }
 
 .card.expanded {
-    background-color: #ffcec0; /* Saumon quand ouverte */
+    background-color: var(--color-2-opacity-80); /* Beige clair quand ouverte */
     min-height: auto;
 }
 
 .card.filled {
-    background-color: #f08262; /* Rouge clair quand remplie et fermée */
+    background-color: var(--color-2);
 }
 
 .header {
