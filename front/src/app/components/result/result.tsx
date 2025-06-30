@@ -32,7 +32,7 @@ const CarbonFootprint: React.FC<CarbonFootprintProps> = ({
                         style={{ width: `${progressPercentage}%` }}
                     ></div>
                 </div>
-                <div className={styles['scale-max']}>{maxScale}</div>
+                <div className={styles['scale-max']}>2 tonnes</div>
             </div>
 
             <div className={styles['comparison']}>
