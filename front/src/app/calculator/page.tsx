@@ -871,8 +871,8 @@ export default function Page() {
 
                     <QuestionCard
                         number="06"
-                        title="Messagerie et réseaux sociaux"
-                        description="Évaluez l'impact environnemental de vos services de messagerie."
+                        title="Messagerie personnelle et réseaux sociaux"
+                        description="Évaluez l'impact environnemental de vos services de messagerie personnelle."
                         isOpen={false}
                         isFilled={messagingResult > 0}
                         onSave={() =>
@@ -884,7 +884,7 @@ export default function Page() {
                         }
                     >
                         <CheckboxGroup
-                            label="Quels services de messagerie utilisez-vous ?"
+                            label="Quels services de messagerie personnelle utilisez-vous ?"
                             name="messaging-services"
                             options={messagingServiceOptions}
                             selectedValues={
@@ -898,7 +898,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="messaging-messagesPerDay"
-                            label="Combien de messages échangez-vous par jour?"
+                            label="Combien de messages personnels échangez-vous par jour?"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.messaging as MessagingFormData)
@@ -908,7 +908,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="messaging-mediaSharedPerDay"
-                            label="Combien de photos, vidéos ou documents partagés par jour par message ?"
+                            label="En moyenne, combien de photos, vidéos ou documents partagez-vous par jour via vos services de messagerie personnelle ?"
                             options={mediaSharedPerDayOptions}
                             value={
                                 (formData.messaging as MessagingFormData)
@@ -918,7 +918,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="messaging-emailsSentPerDay"
-                            label="Combien d'emails envoyés par jour ?"
+                            label="Combien d'emails personnels envoyés par jour ?"
                             options={emailsSentPerDayOptions}
                             value={
                                 (formData.messaging as MessagingFormData)
@@ -928,7 +928,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="messaging-emailsReceivedPerDay"
-                            label="Combien d'emails reçus par jour ?"
+                            label="Combien d'emails personnels reçus par jour ?"
                             options={emailsReceivedPerDayOptions}
                             value={
                                 (formData.messaging as MessagingFormData)
@@ -970,9 +970,78 @@ export default function Page() {
                             onChange={handleInputChange('messaging')}
                         />
                     </QuestionCard>
-
                     <QuestionCard
                         number="07"
+                        title="Communication professionnelle"
+                        description="Évaluez l'impact environnemental de vos services de communication professionnelle."
+                        isOpen={false}
+                        isFilled={workResult > 0}
+                        onSave={() =>
+                            handleSave(
+                                'work',
+                                calculateWorkFootprint as CalculationFunction,
+                                setWorkResult
+                            )
+                        }
+                    >
+                        <CheckboxGroup
+                            label="Quels services de communication professionnelle utilisez-vous ?"
+                            name="work-proCommunication"
+                            options={proCommunicationOptions}
+                            selectedValues={
+                                (formData.work as WorkFormData)
+                                    .proCommunication || []
+                            }
+                            onChange={handleCheckboxChange(
+                                'work',
+                                'proCommunication'
+                            )}
+                        />
+                        <SelectInput
+                            id="work-proMessages"
+                            label="Combien de messages par jour échangez-vous avec vos collègues ?"
+                            options={proMessagesOptions}
+                            value={(formData.work as WorkFormData).proMessages}
+                            onChange={handleInputChange('work')}
+                        />
+                        <SelectInput
+                            id="work-proEmailsSent"
+                            label="Combien d'emails envoyés par jour avec vos services de communication professionnelle ?"
+                            options={proEmailsSentOptions}
+                            value={
+                                (formData.work as WorkFormData).proEmailsSent
+                            }
+                            onChange={handleInputChange('work')}
+                        />
+                        <SelectInput
+                            id="work-proEmailsReceived"
+                            label="Combien d'emails reçus par jour avec vos services de communication professionnelle ?"
+                            options={proEmailsReceivedOptions}
+                            value={
+                                (formData.work as WorkFormData)
+                                    .proEmailsReceived
+                            }
+                            onChange={handleInputChange('work')}
+                        />
+                        <SelectInput
+                            id="work-videoConfHours"
+                            label="Combien d'heures par jour passez-vous à des vidéos-conférences ?"
+                            options={videoConfHoursOptions}
+                            value={
+                                (formData.work as WorkFormData).videoConfHours
+                            }
+                            onChange={handleInputChange('work')}
+                        />
+                        <SelectInput
+                            id="work-cameraUsage"
+                            label="Combien d'utilisation par jour de votre caméra ?"
+                            options={cameraUsageOptions}
+                            value={(formData.work as WorkFormData).cameraUsage}
+                            onChange={handleInputChange('work')}
+                        />
+                    </QuestionCard>
+                    <QuestionCard
+                        number="08"
                         title="Service de streaming et divertissement"
                         description="Évaluez l'impact environnemental de vos services de streaming."
                         isOpen={false}
@@ -1057,7 +1126,7 @@ export default function Page() {
                     </QuestionCard>
 
                     <QuestionCard
-                        number="08"
+                        number="09"
                         title="Intelligence Artificielle"
                         description="Évaluez l'impact environnemental de vos services d'intelligence artificielle."
                         isOpen={false}
@@ -1096,7 +1165,7 @@ export default function Page() {
                     </QuestionCard>
 
                     <QuestionCard
-                        number="09"
+                        number="10"
                         title="Stockage Cloud"
                         description="Évaluez l'impact environnemental de vos services de stockage cloud."
                         isOpen={false}
@@ -1110,7 +1179,7 @@ export default function Page() {
                         }
                     >
                         <CheckboxGroup
-                            label="Quels services de stockage cloud utilisez-vous ? (où sont stockées toutes ces photos de vacances que personne ne regarde jamais)"
+                            label="Quels services de stockage cloud, professionnels et personnels, utilisez-vous ? (où sont stockées tous ces fichiers, images, vidéos, etc.)"
                             name="cloud-storageServices"
                             options={cloudStorageOptions}
                             selectedValues={
@@ -1124,7 +1193,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="cloud-storageSize"
-                            label="Combien de stockage cloud utilisez-vous ? (en Go)"
+                            label="Combien de stockage cloud utilisez-vous ? (au total en Go)"
                             options={messagesPerDayOptions}
                             value={
                                 (formData.cloud as CloudFormData).storageSize
@@ -1139,77 +1208,6 @@ export default function Page() {
                                 (formData.cloud as CloudFormData).filesShared
                             }
                             onChange={handleInputChange('cloud')}
-                        />
-                    </QuestionCard>
-
-                    <QuestionCard
-                        number="10"
-                        title="Communication professionnelle"
-                        description="Évaluez l'impact environnemental de vos services de communication professionnelle."
-                        isOpen={false}
-                        isFilled={workResult > 0}
-                        onSave={() =>
-                            handleSave(
-                                'work',
-                                calculateWorkFootprint as CalculationFunction,
-                                setWorkResult
-                            )
-                        }
-                    >
-                        <CheckboxGroup
-                            label="Quels services de communication professionnelle utilisez-vous ?"
-                            name="work-proCommunication"
-                            options={proCommunicationOptions}
-                            selectedValues={
-                                (formData.work as WorkFormData)
-                                    .proCommunication || []
-                            }
-                            onChange={handleCheckboxChange(
-                                'work',
-                                'proCommunication'
-                            )}
-                        />
-                        <SelectInput
-                            id="work-proMessages"
-                            label="Combien de messages par jour échangez-vous avec vos collègues ?"
-                            options={proMessagesOptions}
-                            value={(formData.work as WorkFormData).proMessages}
-                            onChange={handleInputChange('work')}
-                        />
-                        <SelectInput
-                            id="work-proEmailsSent"
-                            label="Combien d'emails envoyés par jour avec vos services de communication professionnelle ?"
-                            options={proEmailsSentOptions}
-                            value={
-                                (formData.work as WorkFormData).proEmailsSent
-                            }
-                            onChange={handleInputChange('work')}
-                        />
-                        <SelectInput
-                            id="work-proEmailsReceived"
-                            label="Combien d'emails reçus par jour avec vos services de communication professionnelle ?"
-                            options={proEmailsReceivedOptions}
-                            value={
-                                (formData.work as WorkFormData)
-                                    .proEmailsReceived
-                            }
-                            onChange={handleInputChange('work')}
-                        />
-                        <SelectInput
-                            id="work-videoConfHours"
-                            label="Combien d'heures par jour passez-vous à des vidéos-conférences ?"
-                            options={videoConfHoursOptions}
-                            value={
-                                (formData.work as WorkFormData).videoConfHours
-                            }
-                            onChange={handleInputChange('work')}
-                        />
-                        <SelectInput
-                            id="work-cameraUsage"
-                            label="Combien d'utilisation par jour de votre caméra ?"
-                            options={cameraUsageOptions}
-                            value={(formData.work as WorkFormData).cameraUsage}
-                            onChange={handleInputChange('work')}
                         />
                     </QuestionCard>
                 </div>

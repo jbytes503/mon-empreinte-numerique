@@ -113,18 +113,14 @@ function BilanPageContent() {
             },
             {
                 id: 9,
-                text: "Réduisez les visioconférences 📹✈️ \nUne réunion virtuelle d'une heure émet autant de CO2 qu'un trajet en voiture de 1 km. Privilégiez le téléphone quand c'est possible.",
-            },
-            {
-                id: 10,
                 text: 'Optimisez votre boîte mail 📧🚮 \nSupprimez les anciens emails avec pièces jointes, compressez les fichiers et désactivez la synchronisation automatique.',
             },
             {
-                id: 11,
+                id: 10,
                 text: 'Utilisez des logiciels légers 🖥️🍃 \nLes applications trop lourdes sollicitent plus votre processeur. Privilégiez les logiciels open source et les versions allégées.',
             },
             {
-                id: 12,
+                id: 11,
                 text: "Petits gestes, grand impact ! 🌍✨ \nAdoptez ces bonnes pratiques et partagez-les avec votre entourage pour amplifier l'effet positif !",
             },
         ];
