@@ -49,7 +49,9 @@ export function calculateComputerFootprint(data) {
             case 'bureau':
                 return carboneData.ordinateurs.ordinateur_fixe_professionel;
             case 'perso':
-                return carboneData.ordinateurs.ordinateur_fixe_personnel;
+                return carboneData.ordinateurs.ordinateur_fixe_personnesl;
+            case 'portable_pro':
+                return carboneData.ordinateurs.ordinateur_portable;
             default:
                 return carboneData.ordinateurs.ordinateur_portable;
         }

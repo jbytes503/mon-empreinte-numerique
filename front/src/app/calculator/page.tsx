@@ -133,7 +133,8 @@ const smartphoneBrandOptions = [
 ];
 
 const computerTypeOptions = [
-    { id: 'portable', value: 'portable', label: 'Portable' },
+    { id: 'portable perso', value: 'portable', label: 'Portable perso' },
+    { id: 'portable pro', value: 'portable_pro', label: 'Portable Pro' },
     { id: 'bureau', value: 'bureau', label: 'Fixe Pro' },
     {
         id: 'perso',
