@@ -21,9 +21,7 @@ const CarbonFootprint: React.FC<CarbonFootprintProps> = ({
                 </div>
                 <div className={styles['time-period']}>par an</div>
             </div>
-
             <hr className={styles['custom-hr']} />
-
             <div className={styles['scale-container']}>
                 <div className={styles['scale-min']}>0</div>
                 <div className={styles['scale-bar']}>
@@ -34,12 +32,17 @@ const CarbonFootprint: React.FC<CarbonFootprintProps> = ({
                 </div>
                 <div className={styles['scale-max']}>{maxScale}</div>
             </div>
-
             <div className={styles['comparison']}>
                 En un an, votre empreinte carbone numérique équivaut à{' '}
                 {tripComparison} voyages en voiture de Lyon à Dijon !
                 <span className={styles['smileys']}>🚗💨</span>
             </div>
+            <span className={styles['info']}>
+                Les 2 tonnes de CO₂ par an représentent l’objectif individuel à
+                atteindre d’ici 2050 pour chaque Français afin de respecter
+                l’Accord de Paris et limiter le réchauffement climatique à
+                +1,5°C.
+            </span>
         </div>
     );
 };

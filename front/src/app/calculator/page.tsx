@@ -135,7 +135,11 @@ const smartphoneBrandOptions = [
 const computerTypeOptions = [
     { id: 'portable', value: 'portable', label: 'Portable' },
     { id: 'bureau', value: 'bureau', label: 'Fixe Pro' },
-    { id: 'perso', value: 'perso', label: 'Fixe Perso' },
+    {
+        id: 'perso',
+        value: 'perso',
+        label: 'Fixe Perso (eh oui, les tours gaming comptent aussi !)',
+    },
 ];
 
 const computerBrandOptions = [
@@ -506,7 +510,8 @@ export default function Page() {
                 <p>
                     <em>
                         Plus vous remplissez d'informations, plus votre résultat
-                        sera précis !
+                        sera précis ! Vos données ne sont ni stockées ni
+                        revendues.
                     </em>
                 </p>
             </div>
@@ -961,7 +966,7 @@ export default function Page() {
                         />
                         <SelectInput
                             id="messaging-socialMediaShares"
-                            label="Combien de photos ou vidéos partagés par jour sur les réseaux sociaux ? (et oui envoyer un snap ça compte)"
+                            label="Combien de photos ou vidéos partagez-vous par jour sur les réseaux sociaux ? (et oui envoyer un snap ça compte)"
                             options={socialMediaSharesOptions}
                             value={
                                 (formData.messaging as MessagingFormData)
