@@ -125,43 +125,43 @@ function BilanPageContent() {
             },
             {
                 id: 12,
-                text: '🔌 Pensez à éteindre votre ordinateur\n\nÉteindre son ordinateur tous les soirs peut réduire sa consommation énergétique de 25 %. Un geste simple pour la planète !',
+                text: '🔌 Pensez à éteindre votre ordinateur\nÉteindre son ordinateur tous les soirs peut réduire sa consommation énergétique de 25 %. Un geste simple pour la planète !',
             },
             {
                 id: 13,
-                text: '🗂️ Évitez les fenêtres multiples\n\nFermer les onglets inutiles sur votre ordinateur permet de réduire sa consommation énergétique de 20 %.',
+                text: '🗂️ Évitez les fenêtres multiples\nFermer les onglets inutiles sur votre ordinateur permet de réduire sa consommation énergétique de 20 %.',
             },
             {
                 id: 14,
-                text: '📡 Arrêtez vos box Internet\n\nSaviez-vous qu’une box consomme autant d’électricité qu’un réfrigérateur branché 24h/24 ? Éteignez-la lorsque vous ne l’utilisez pas, c’est un petit geste qui fait une grande différence !',
+                text: '📡 Arrêtez vos box Internet\nSaviez-vous qu’une box consomme autant d’électricité qu’un réfrigérateur branché 24h/24 ? Éteignez-la lorsque vous ne l’utilisez pas, c’est un petit geste qui fait une grande différence !',
             },
             {
                 id: 15,
-                text: '💻 Éteignez votre PC\n\nUn ordinateur en veille consomme 20 % à 40 % de son énergie en marche. Éteignez-le pour éviter ce gaspillage et réduire votre empreinte énergétique.',
+                text: '💻 Éteignez votre PC\nUn ordinateur en veille consomme 20 % à 40 % de son énergie en marche. Éteignez-le pour éviter ce gaspillage et réduire votre empreinte énergétique.',
             },
             {
                 id: 16,
-                text: '⚡ Débranchez vos PC\n\nUn ordinateur éteint mais laissé branché consomme encore 70 Wh par jour. Si vous ne l’utilisez pas, pensez à le débrancher pour économiser de l’énergie.',
+                text: '⚡ Débranchez vos PC\nUn ordinateur éteint mais laissé branché consomme encore 70 Wh par jour. Si vous ne l’utilisez pas, pensez à le débrancher pour économiser de l’énergie.',
             },
             {
                 id: 17,
-                text: '♻️ Gardez vos appareils plus longtemps\n\nGarder un ordinateur ou une tablette 4 ans au lieu de 2 améliore de 50 % son bilan environnemental. Prolongez leur durée de vie pour limiter l’impact écologique.',
+                text: '♻️ Gardez vos appareils plus longtemps\nGarder un ordinateur ou une tablette 4 ans au lieu de 2 améliore de 50 % son bilan environnemental. Prolongez leur durée de vie pour limiter l’impact écologique.',
             },
             {
                 id: 18,
-                text: '🛡️ Prenez soin de vos équipements\n\nUtilisez une housse pour transporter votre ordinateur et protégez votre smartphone avec une coque et un film pour prolonger leur durée de vie et limiter le besoin de remplacement.',
+                text: '🛡️ Prenez soin de vos équipements\nUtilisez une housse pour transporter votre ordinateur et protégez votre smartphone avec une coque et un film pour prolonger leur durée de vie et limiter le besoin de remplacement.',
             },
             {
                 id: 19,
-                text: '📦 Optimisez la taille de vos fichiers\n\nCompressez vos pièces jointes et vos documents avant de les envoyer ou de les stocker dans le cloud. Vous pouvez réduire leur taille jusqu’à 80 % et limiter l’impact environnemental de leur stockage.',
+                text: '📦 Optimisez la taille de vos fichiers\nCompressez vos pièces jointes et vos documents avant de les envoyer ou de les stocker dans le cloud. Vous pouvez réduire leur taille jusqu’à 80 % et limiter l’impact environnemental de leur stockage.',
             },
             {
                 id: 20,
-                text: '🔍 Évaluez l’utilité d’une recherche IA\n\nPour des recherches factuelles, préférez les moteurs de recherche classiques, beaucoup moins énergivores que les IA génératives.',
+                text: '🔍 Évaluez l’utilité d’une recherche IA\nPour des recherches factuelles, préférez les moteurs de recherche classiques, beaucoup moins énergivores que les IA génératives.',
             },
             {
                 id: 21,
-                text: '🤖 Utilisez la bonne IA\n\nPrivilégiez une IA spécifique (traduction, correction orthographique) plutôt qu’une IA générative lorsque cela est possible, afin de réduire la consommation d’énergie.',
+                text: '🤖 Utilisez la bonne IA\nPrivilégiez une IA spécifique (traduction, correction orthographique) plutôt qu’une IA générative lorsque cela est possible, afin de réduire la consommation d’énergie.',
             },
         ];
 
