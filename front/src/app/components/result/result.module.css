@@ -62,6 +62,10 @@
     font-size: 24px;
     color: #301934;
     line-height: 1.4;
+    margin-bottom: 20px;
+}
+.info {
+    font-style: italic;
 }
 
 .smileys {

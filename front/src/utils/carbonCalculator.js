@@ -42,18 +42,22 @@ export function calculateComputerFootprint(data) {
 
     if (count === 0 && unused === 0) return 0;
 
-    const typeEmissions = (data.types || ['portable']).map((type) => {
-        switch (type) {
-            case 'portable':
-                return carboneData.ordinateurs.ordinateur_portable;
-            case 'bureau':
-                return carboneData.ordinateurs.ordinateur_fixe_professionel;
-            case 'perso':
-                return carboneData.ordinateurs.ordinateur_fixe_personnel;
-            default:
-                return carboneData.ordinateurs.ordinateur_portable;
+    const typeEmissions = (data.types?.length ? data.types : ['portable']).map(
+        (type) => {
+            switch (type) {
+                case 'portable':
+                    return carboneData.ordinateurs.ordinateur_portable;
+                case 'bureau':
+                    return carboneData.ordinateurs.ordinateur_fixe_professionel;
+                case 'perso':
+                    return carboneData.ordinateurs.ordinateur_fixe_personnesl;
+                case 'portable_pro':
+                    return carboneData.ordinateurs.ordinateur_portable;
+                default:
+                    return carboneData.ordinateurs.ordinateur_portable;
+            }
         }
-    });
+    );
     const avgTypeEmission =
         typeEmissions.reduce((a, b) => a + b, 0) / typeEmissions.length;
 
