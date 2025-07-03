@@ -78,7 +78,7 @@
 
 /* Media Queries */
 
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
     .intro {
         max-width: 100%;
         padding: 0;
