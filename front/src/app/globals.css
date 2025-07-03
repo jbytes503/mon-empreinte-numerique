@@ -45,7 +45,7 @@ body {
 }
 
 /* Tablets */
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
     html,
     body {
         margin-left: 15px;

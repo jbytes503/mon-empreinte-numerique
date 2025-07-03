@@ -27,7 +27,7 @@
 }
 
 /* Tablets (max-width: 1050px) */
-@media (max-width: 1050px) {
+@media (max-width: 1120px) {
     .card {
         padding: 20px; /* Reduce padding */
         width: 330px; /* Reduce card width */
