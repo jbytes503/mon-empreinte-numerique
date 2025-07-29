@@ -86,14 +86,16 @@
         max-width: 90%;
     }
 }
-
 .scale-label {
     position: absolute;
-    right: 5%;
-    left: 95%;
+    right: 5px; /* marge à droite */
     top: 50%;
     transform: translateY(-50%);
     font-size: 12px;
     color: white;
     font-weight: bold;
+    white-space: nowrap; /* évite que le texte passe à la ligne */
+    max-width: 90%; /* empêche de dépasser */
+    overflow: hidden;
+    text-overflow: ellipsis; /* ajoute "..." si vraiment trop long */
 }
