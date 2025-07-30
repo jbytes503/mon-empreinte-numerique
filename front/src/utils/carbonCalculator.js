@@ -50,7 +50,7 @@ export function calculateComputerFootprint(data) {
                 case 'bureau':
                     return carboneData.ordinateurs.ordinateur_fixe_professionel;
                 case 'perso':
-                    return carboneData.ordinateurs.ordinateur_fixe_personnesl;
+                    return carboneData.ordinateurs.ordinateur_fixe_personnel;
                 case 'portable_pro':
                     return carboneData.ordinateurs.ordinateur_portable;
                 default:
@@ -236,13 +236,13 @@ export function calculateStreamingFootprint(data) {
               0
           ) / data.videoServices.length
         : 0;
-    totalEmission_g += (data.videoHours || 0) * 365 * avgVideoFactorPerHour_g;
+    totalEmission_g += (data.videoHours || 0) * 52 * avgVideoFactorPerHour_g;
 
     // musique
     // TODO : ALLER CHERCHER LE FACTEUR
     const musicFactorPerHour_g = 5; // 5 gCO2e/heure
     if (data.musicServices?.length) {
-        totalEmission_g += (data.musicHours || 0) * 365 * musicFactorPerHour_g;
+        totalEmission_g += (data.musicHours || 0) * 52 * musicFactorPerHour_g;
     }
 
     // cloud gaming
